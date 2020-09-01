@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import ItemTile from './ItemTile';
 
@@ -24,13 +23,13 @@ export default function ItemGrid() {
         return (
           <React.Fragment>
             <Grid item xs={4}>
-              <ItemTile/>
+              <ItemTile produce="Fruit"/>
             </Grid>
             <Grid item xs={4}>
-              <ItemTile/>
+              <ItemTile produce="Veggie"/>
             </Grid>
             <Grid item xs={4}>
-              <ItemTile/>
+              <ItemTile produce="Dessert"/>
             </Grid>
           </React.Fragment>
         );

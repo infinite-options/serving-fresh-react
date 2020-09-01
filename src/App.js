@@ -9,14 +9,14 @@ import ItemGrid from './components/ItemGrid';
 function App() {
   return (
     <div className="App">
-      <Navigation/>
+      
       <Container>
         <FilterButtons/>
         <Container>
           <ItemGrid/>
         </Container>
       </Container>
-      
+      <Navigation/>
     </div>
   );
 }

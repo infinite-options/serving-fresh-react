@@ -1,50 +1,59 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import CardActions from '@material-ui/core/CardActions';
+import Button from '@material-ui/core/Button';
+import { Divider, makeStyles } from '@material-ui/core';
+import CardHeader from '@material-ui/core/CardHeader';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    maxWidth: 345,
+    borderRadius: 12,
+    minWidth: 256,
+    textAlign: 'center',
   },
-  media: {
-    height: 140,
+  header: {
+    textAlign: 'center',
+    spacing: 10,
   },
-});
+  list: {
+    padding: '20px',
+  },
+  button: {
+    margin: theme.spacing(1),
+    backgroundColor:"#800000"
+  },
+  action: {
+    display: 'flex',
+    justifyContent: 'space-around',
+  },
+}));
 
-export default function MediaCard() {
+export const PricingCardDemo = React.memo(function PricingCard() {
+  const defaultProps = ['Fruit'];
   const classes = useStyles();
-
   return (
     <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="https://image.shutterstock.com/image-photo/exposition-fresh-organic-vegetables-on-260nw-1697765218.jpg"
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Grocery
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Item Description
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
+      <CardHeader title="Grocery Item" className={classes.header} />
+      <Divider variant="middle" />
+      <CardContent>
+        <Typography variant="h4" align="center">
+          $3.99 per lb
+        </Typography>
+        <div className={classes.list}>
+          <Typography align="center">{defaultProps}</Typography>
+          
+        </div>
+      </CardContent>
+      <Divider variant="middle" />
+      <CardActions className={classes.action}>
+        <Button variant="contained" color="primary" className={classes.button}>
+          Buy
         </Button>
       </CardActions>
     </Card>
   );
-}
+});
+
+export default PricingCardDemo
