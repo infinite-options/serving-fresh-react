@@ -8,10 +8,10 @@ import InfoIcon from '@material-ui/icons/Info';
 const useStyles = makeStyles({
   root: {
     width: '100%',
-    position: 'fixed',
+    position: 'sticky',
     bottom: 0,
     boxShadow: '0 -1px 1px 0 rgba(0,0,0,.1)',
-    backgroundColor: '#800000',
+    backgroundColor: '#FF8500',
     fontSize: '.53rem',
     fontWeight: 500,
     textDecoration: 'none',

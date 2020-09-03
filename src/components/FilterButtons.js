@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function GroupSizesColors() {
+export default function GroupSizesColors(props) {
   const classes = useStyles();
   const [alignment, setAlignment] = React.useState(null);
 
@@ -32,17 +32,20 @@ export default function GroupSizesColors() {
         aria-label="text alignment"
         
       >
-        <ToggleButton color='primary' value="fruit" size="large">
+        <ToggleButton onClick={props.fruit} color='primary' value="fruit" size="large">
          <span role="img" aria-label="fruit">🍎</span> 
         </ToggleButton>
-        <ToggleButton color='primary' value="veggie" size="large" >
+        <ToggleButton onClick={props.veggie} color='primary' value="veggie" size="large" >
           <span role="img" aria-label="veg">🥕</span>
         </ToggleButton>
-        <ToggleButton color='primary' value="milk" size="large" >
+        <ToggleButton onClick={props.milk} color='primary' value="milk" size="large" >
           <span role="img" aria-label="milk">🥛🥚</span>
         </ToggleButton>
-        <ToggleButton color='primary' value="dessert" size="large" >
+        <ToggleButton onClick={props.dessert} color='primary' value="dessert" size="large" >
           <span role="img" aria-label="dessert">🍰</span>
+        </ToggleButton>
+        <ToggleButton onClick={props.clear} color='primary' value="clear" size="large" >
+          <span role="img" aria-label="clear">X</span>
         </ToggleButton>
       </ToggleButtonGroup>
     </div>
