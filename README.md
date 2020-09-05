@@ -66,3 +66,9 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+### Here is the link to host fontAweSome itself
+    https://fontawesome.com/how-to-use/on-the-web/setup/hosting-font-awesome-yourself
+we will need to install them in npm and do as the following in the link
