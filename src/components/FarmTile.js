@@ -10,8 +10,8 @@ import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
-    maxWidth: 360,
+    // width: '100%',
+    // maxWidth: 500,
     backgroundColor: theme.palette.background.paper,
   },
   chip: {
@@ -34,11 +34,11 @@ export default function MiddleDividers(props) {
 
   return (
     <div className={classes.root}>
-      <Box boxShadow={2}>
+      <Box boxShadow={2} width="500px">
         <div className={classes.section1}>
           <Grid container alignItems="center">
             <Grid item xs>
-              <Typography gutterBottom variant="h4">
+              <Typography gutterBottom variant="h4" style={{padding:'10px'}}>
                 {props.produce.name}
             </Typography>
             </Grid>

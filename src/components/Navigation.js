@@ -5,6 +5,9 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import HomeWorkIcon from '@material-ui/icons/HomeWork';
 import MoneyOffIcon from '@material-ui/icons/MoneyOff';
 import InfoIcon from '@material-ui/icons/Info';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import {Link} from 'react-router-dom';
+
 const useStyles = makeStyles({
   root: {
     width: '100%',
@@ -27,6 +30,10 @@ const useStyles = makeStyles({
   }
 });
 
+/* const LinkBehavior = React.forwardRef((props, ref) => (
+  <RouterLink ref={ref} to="/getting-started/installation/" {...props} />
+)); */
+
 export default function SimpleBottomNavigation() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -40,9 +47,10 @@ export default function SimpleBottomNavigation() {
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction style={{ color: '#FFFFFF'}} label="Farms" icon={<HomeWorkIcon className={classes.button} style={{ color: '#FFFFFF' }} />} />
+      <BottomNavigationAction component={Link} to="/farms" style={{ color: '#FFFFFF'}} label="Farms" icon={<HomeWorkIcon className={classes.button} style={{ color: '#FFFFFF' }} />} />
       <BottomNavigationAction style={{ color: '#FFFFFF' }} label="Refund" icon={<MoneyOffIcon className={classes.button} style={{ color: '#FFFFFF' }} />} />
       <BottomNavigationAction style={{ color: '#FFFFFF' }} label="Info" icon={<InfoIcon className={classes.button} style={{ color: '#FFFFFF' }} />} />
+      <BottomNavigationAction component={Link} to="/profile" style={{ color: '#FFFFFF' }} label="Profile" icon={<AccountCircleIcon className={classes.button} style={{ color: '#FFFFFF' }}/>} />
     </BottomNavigation>
   );
 }

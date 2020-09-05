@@ -3,7 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import FarmTile from './FarmTile';
 import FilterButtons from './FilterButtons.js';
-
+import Paper from '@material-ui/core/Paper';
+import Divider from '@material-ui/core/Divider';
+import FilterBar from './FilterBar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,6 +16,13 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
+  dateHeader: {
+    ...theme.typography.button,
+    backgroundColor: theme.palette.background.paper,
+    padding: '10px',
+    width: '50%',
+    fontWeight:'bold'
+  }
 }));
 
 
@@ -84,24 +93,6 @@ export default function ItemGrid() {
     renderFarms();
   }, [])
 
-  /* let myFirstPromise = new Promise((resolve, reject) => {
-    // We call resolve(...) when what we were doing asynchronously was successful, and reject(...) when it failed.
-    // In this example, we use setTimeout(...) to simulate async code. 
-    // In reality, you will probably be using something like XHR or an HTML5 API.
-    setTimeout( function() {
-      resolve("Success!")  // Yay! Everything went well!
-    }, 5000) 
-  })  */
-
-  /* myFirstPromise.then((successMessage) => {
-    // successMessage is whatever we passed in the resolve(...) function above.
-    // It doesn't have to be a string, but if it is only a succeed message, it probably will be.
-    setFarms(farmlist);
-    setFilterFarms(farmlist);
-    setLoading(true);
-    console.log("this is farms" + farms);
-    console.log("Yay! " + successMessage) 
-  }); */
 
   if (!loading) {
     return ("Loading...");
@@ -109,7 +100,7 @@ export default function ItemGrid() {
 
 
 
-  console.log("this is farms OUTSIDE ASYNC " + farms);
+  //console.log("this is farms OUTSIDE ASYNC " + farms);
   var fruit = farms.filter(f => f.type === 'fruit');
   var veggie = farms.filter(f => f.type === 'veggie');
   var milkeggs = farms.filter(f => f.type === 'milkeggs');
@@ -140,27 +131,38 @@ export default function ItemGrid() {
   function FormRow() {
     return (
       <React.Fragment>
-        <Grid item xs={4}>
+        <Grid item xs>
           {
             filterFarms && filterFarms.map((fm) => (
               <div key={fm.id}>
                 <FarmTile produce={fm} />
               </div>
-
             ))
           }
         </Grid>
       </React.Fragment>
     );
   }
-
+//<FilterButtons fruit={showFruit} veggie={showVeggie} milk={showMilkEggs} dessert={showDesserts} clear={removeFilter} />
   return (
 
     <div className={classes.root}>
-      <FilterButtons fruit={showFruit} veggie={showVeggie} milk={showMilkEggs} dessert={showDesserts} clear={removeFilter} />
+      <FilterBar fruit={showFruit} veggie={showVeggie} milk={showMilkEggs} dessert={showDesserts} clear={removeFilter}/>
+      &nbsp;
       <Grid container spacing={3}>
         <Grid container direction="column" justify="center" alignItems="center">
+          <Paper className={classes.dateHeader}>Delivering Monday</Paper>
           <FormRow />
+          <Divider />
+          &nbsp;
+          <Paper className={classes.dateHeader}>Delivering Tuesday</Paper>
+          <FormRow />
+          <Divider />
+          &nbsp;
+          <Paper className={classes.dateHeader}>Delivering Wednesday</Paper>
+          <FormRow />
+          <Divider />
+          &nbsp;
         </Grid>
       </Grid>
     </div>

@@ -32,19 +32,19 @@ export default function GroupSizesColors(props) {
         aria-label="text alignment"
         
       >
-        <ToggleButton onClick={props.fruit} color='primary' value="fruit" size="large">
+        <ToggleButton onClick={props.bfruit} color='primary' value="fruit" size="large">
          <span role="img" aria-label="fruit">🍎</span> 
         </ToggleButton>
-        <ToggleButton onClick={props.veggie} color='primary' value="veggie" size="large" >
+        <ToggleButton onClick={props.bveggie} color='primary' value="veggie" size="large" >
           <span role="img" aria-label="veg">🥕</span>
         </ToggleButton>
-        <ToggleButton onClick={props.milk} color='primary' value="milk" size="large" >
+        <ToggleButton onClick={props.bmilk} color='primary' value="milk" size="large" >
           <span role="img" aria-label="milk">🥛🥚</span>
         </ToggleButton>
-        <ToggleButton onClick={props.dessert} color='primary' value="dessert" size="large" >
+        <ToggleButton onClick={props.bdessert} color='primary' value="dessert" size="large" >
           <span role="img" aria-label="dessert">🍰</span>
         </ToggleButton>
-        <ToggleButton onClick={props.clear} color='primary' value="clear" size="large" >
+        <ToggleButton onClick={props.bclear} color='primary' value="clear" size="large" >
           <span role="img" aria-label="clear">X</span>
         </ToggleButton>
       </ToggleButtonGroup>
