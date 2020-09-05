@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import someContexts from "./makeContext";
 
 function HeaderCart(props) {
-  return (
-    <header>
-      <Link to="/"> {props.farmName}</Link>
-    </header>
-  );
+  const cartContext = useContext(someContexts);
+  var itemsAmount = cartContext.cartTotal;
+  return (<div>
+    <img className="userIconHeader"  src="../footer_icon/person (2).png" alt="user-icon"/>
+    <h2 className="h2Header">Checkout</h2>
+    <div id="ex4">
+      <span className="p1 fa-stack fa-2x has-badge" data-count={itemsAmount}>
+      <i className="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse" data-count="4b"></i>
+      </span>
+    </div>
+    <div className="backArrowCart">
+      <Link to="/"><i class="fas fa-chevron-left"> Back</i></Link>
+    </div>   
+   </div> );
 }
 
 export default HeaderCart;

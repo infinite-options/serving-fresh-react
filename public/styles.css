@@ -19,7 +19,7 @@ header {
   margin: auto -16px;
   padding: 50px 32px 60px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-  font-size: 30px;
+  font-size: 40px;
   color: white;
   text-align: center;
 }
@@ -45,6 +45,7 @@ h1 span {
   margin: 32px auto 4rem;
   max-width: 90%;
   margin-top: 390px;
+  margin-bottom: 200px;
 }
 
 .dictionary > .term {
@@ -85,9 +86,9 @@ dt img {
   font-size: 400%;
 }
 
-dd {
-  /* font-size: 92.5%; */
-}
+/* dd {
+  font-size: 92.5%;
+} */
 
 dd dt {
   margin-top: 1rem;
@@ -196,10 +197,10 @@ dd dl .term {
 }
 
 /* hr line over increase and decrease button */
-.hrProduct {
-  /* position: relative;
-  bottom: -15px; */
-}
+/* .hrProduct {
+  position: relative;
+  bottom: -15px;
+} */
 
 .refundIcon {
   position: absolute;
@@ -244,11 +245,7 @@ dd dl .term {
   font-size: 70px;
 }
 
-.userIconHeader{
-  position: absolute;
-  left: 50px;
-  bottom: 145px;
-}
+
 .sticky {
   position: fixed;
   top: 0;
@@ -260,7 +257,7 @@ dd dl .term {
   display: inline-block;
     position: absolute;
     right: 40px;
-    bottom: 115px;
+    bottom: 100px;
 }
 
 #ex4 .p1[data-count]:after{
@@ -281,7 +278,44 @@ dd dl .term {
 
 .backArrow{
   position: absolute;
-  bottom: 40px;
+  bottom: 140px;
   left: 50px;
 }
 
+.stickyFooter{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+  /* padding-bottom: 80px; */
+}
+
+
+/*all css for cart page*/
+.backArrowCart{
+  position: absolute;
+  bottom: 30px;
+  left: 50px;
+}
+
+.userIconHeader{
+  position: absolute;
+  left: 50px;
+  bottom: 160px;
+}
+
+.stickyCart {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  padding-bottom: 80px;
+}
+
+.stickyFooterCart{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+  /* padding-bottom: 80px; */
+}

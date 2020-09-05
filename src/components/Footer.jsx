@@ -5,7 +5,7 @@ function Footer() {
   const history = useHistory();
   const goToCart = () => history.push("/cart");
   return (
-    <footer>
+    <footer className="stickyFooter">
       <button className="checkOutBtn" onClick={goToCart}>
         Processed
       </button>

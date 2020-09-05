@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import DisplayProducts from "./pages/displayProduct";
 import Cart from "./pages/cart";
 
@@ -8,12 +8,10 @@ import Cart from "./pages/cart";
 
 function Nav() {
   return (
-    <BrowserRouter>
       <Switch>
         <Route exact path="/" component={DisplayProducts} />
         <Route path="/cart" component={Cart} />
       </Switch>
-    </BrowserRouter>
   );
 }
 

@@ -22,7 +22,6 @@ function DisplayProduct() {
   return (
     <div>
       <header className="sticky"><Header farmName={aFarm.farmName}/></header>
-       
       <dl className="dictionary">{products.map(createProduct)}</dl>
       <Footer />
     </div>

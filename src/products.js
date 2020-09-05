@@ -5,14 +5,15 @@ const products = [
     name: "Apple",
     price: "$1.00",
     meaning: "Each",
-    farmName: "Resendiz Family Fruit Barn"
+    farmName: "Resendiz"
   },
   {
     id: 2,
     img: "./fruit_img/oranges.jpg",
     name: "Orange",
     price: "$2.99",
-    meaning: "Each"
+    meaning: "Each",
+    farmName: "Resendiz"
   },
   {
     id: 3,
@@ -20,7 +21,7 @@ const products = [
     name: "Peach",
     price: "$1.50",
     meaning: "Each",
-    farmName: "Resendiz Family Fruit Barn"
+    farmName: "Resendiz"
   },
   {
     id: 4,
@@ -28,7 +29,7 @@ const products = [
     name: "Green bean",
     price: "$0.12",
     meaning: "Each",
-    farmName: "Resendiz Family Fruit Barn"
+    farmName: "Resendiz"
   },
   {
     id: 5,
@@ -36,7 +37,7 @@ const products = [
     name: "Banana",
     price: "$0.45",
     meaning: "Each",
-    farmName: "Resendiz Family Fruit Barn"
+    farmName: "Resendiz"
   },
   {
     id: 6,
@@ -44,7 +45,7 @@ const products = [
     name: "Mango",
     price: "$0.80",
     meaning: "Each",
-    farmName: "Resendiz Family Fruit Barn"
+    farmName: "Resendiz"
   },
   {
     id: 7,
@@ -52,7 +53,7 @@ const products = [
     name: "Strawberry",
     price: "$5.70",
     meaning: "per lb",
-    farmName: "Resendiz Family Fruit Barn"
+    farmName: "Resendiz"
   },
   {
     id: 8,
@@ -60,7 +61,7 @@ const products = [
     name: "Watermelon",
     price: "$15.50",
     meaning: "Each",
-    farmName: "Resendiz Family Fruit Barn"
+    farmName: "Resendiz"
   },
   {
     id: 9,
@@ -68,7 +69,7 @@ const products = [
     name: "Cherry",
     price: "$10.01",
     meaning: "per lb",
-    farmName: "Resendiz Family Fruit Barn"
+    farmName: "Resendiz"
   },
   {
     id: 10,
@@ -76,7 +77,7 @@ const products = [
     name: "Boysenberry Pie",
     price: "$2.00",
     meaning: "each",
-    farmName: "Resendiz Family Fruit Barn"
+    farmName: "Resendiz"
   },
   {
     id: 11,
@@ -84,7 +85,7 @@ const products = [
     name: "Key Lime Pie",
     price: "$2.00",
     meaning: "each",
-    farmName: "Resendiz Family Fruit Barn"
+    farmName: "Resendiz"
   }
 ];
 
