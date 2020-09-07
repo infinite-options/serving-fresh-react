@@ -11,10 +11,22 @@ function Header(props) {
   const [dessertClick, set3]= useState(true);
   const [othersClick, set4]= useState(true);
 
-  function fruitClicking(){set1(!fruitClick); console.log(fruitClick)}
-  function vegeClicking(){set2(!vegeClick);}
-  function dessertClicking(){set3(!dessertClick);}
-  function othersClicking(){set4(!othersClick);}
+  function fruitClicking(){
+    set1(!fruitClick);
+    cartContext.setValFruit(!fruitClick);
+  }
+  function vegeClicking(){
+    set2(!vegeClick);
+    cartContext.setValVege(!vegeClick);
+  }
+  function dessertClicking(){
+    set3(!dessertClick);
+    cartContext.setValDessert(!dessertClick);
+  }
+  function othersClicking(){
+    set4(!othersClick);
+    cartContext.setValOther(!othersClick);
+  }
 
 
   return(<div>

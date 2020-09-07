@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
 import Entry from "./Entry";
 import products from "../../products";
 import Footer from "../Footer";
 import Header from "../Header";
+import someContexts from "../makeContext";
 
 function createProduct(products) {
   return (
@@ -17,12 +18,48 @@ function createProduct(products) {
   );
 }
 
+function sorting(prodChoice,copyFarm){
+  var fruitItems= copyFarm, vegeItems=copyFarm,dessertItems = copyFarm, otherItems = copyFarm;
+  if(!prodChoice.fruitSort){
+    fruitItems = fruitItems.filter(farm => farm.type === "fruits");
+  }else{
+    fruitItems =[];
+  }
+
+  if(!prodChoice.vegeSort){
+    vegeItems = vegeItems.filter(farm => farm.type === "vegetable");
+  }else{
+    vegeItems=[];
+  }
+
+  if(!prodChoice.dessertSort){
+    dessertItems = dessertItems.filter(farm => farm.type === "dessert");
+  }else{
+    dessertItems=[];
+  }
+
+  if(!prodChoice.othersSort){
+    otherItems = otherItems.filter(farm => farm.type === "others");
+  }else{
+    otherItems=[];
+  }
+
+  return [...fruitItems, ...vegeItems, ...dessertItems, ...otherItems];
+}
+
 function DisplayProduct() {
-  const [aFarm] = products;
+  var copyFarm = products;
+  const [aFarm] = copyFarm;
+  const prodChoice =useContext(someContexts);
+  copyFarm = sorting(prodChoice,copyFarm);
+  if(copyFarm.length ===0){
+    copyFarm = products;
+  }
+
   return (
     <div>
       <header className="sticky"><Header farmName={aFarm.farmName}/></header>
-      <dl className="dictionary">{products.map(createProduct)}</dl>
+      <dl className="dictionary">{copyFarm.map(createProduct)}</dl>
       <Footer />
     </div>
   );
