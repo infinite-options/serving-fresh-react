@@ -1,14 +1,14 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 // use history will help to redirect the path
 function Footer() {
-  const history = useHistory();
-  const goToCart = () => history.push("/cart");
+  // const history = useHistory();
+  // const goToCart = () => history.push("/cart");
   return (
     <footer className="stickyFooter">
-      <button className="checkOutBtn" onClick={goToCart}>
+      {/* <button className="checkOutBtn" onClick={goToCart}>
         Processed
-      </button>
+      </button> */}
       <img 
      className="homeFooter" src="../footer_icon/home.png" alt="home-icon"/>
       <img

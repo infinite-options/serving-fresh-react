@@ -17,7 +17,7 @@ footer {
 header {
   background-color: #136d74;
   margin: auto -16px;
-  padding: 50px 32px 60px;
+  padding: 50px 32px 130px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   font-size: 40px;
   color: white;
@@ -44,7 +44,7 @@ h1 span {
   justify-content: space-between;
   margin: 32px auto 4rem;
   max-width: 90%;
-  margin-top: 390px;
+  margin-top: 470px;
   margin-bottom: 200px;
 }
 
@@ -260,6 +260,8 @@ dd dl .term {
 .h2Header{
   display: inline-block;
   font-size: 70px;
+  position: relative;
+  bottom: 40px;
 }
 
 
@@ -272,9 +274,9 @@ dd dl .term {
 
 #ex4{
   display: inline-block;
-    position: absolute;
-    right: 40px;
-    bottom: 100px;
+  position: absolute;
+  right: 40px;
+  top: 35px;
 }
 
 #ex4 .p1[data-count]:after{
@@ -295,7 +297,7 @@ dd dl .term {
 
 .backArrow{
   position: absolute;
-  bottom: 140px;
+  top: 100px;
   left: 50px;
 }
 
@@ -342,7 +344,40 @@ dd dl .term {
 /* make link /a href white*/
 .link {
   color: #FFF;
+  text-decoration: none;
+
 }
-.link:hover {
+
+/* .link:hover {
    color: #FF8500
+} */
+
+.colorClick{
+  color: #FF8500
+}
+
+/*css for searching in shopping cart*/
+.sort1{
+  position: absolute;
+  top: 220px;
+  left: 7%
+}
+.sort2{
+  position: absolute;
+  left: 26%;
+  top: 220px;
+}
+.sort3{
+  position: absolute;
+  top: 220px;
+  right: 30%;
+}
+.sort4{
+  position: absolute;
+  right: 7%;
+  top: 220px;
+}
+
+.iconBlock{
+  display: block;
 }

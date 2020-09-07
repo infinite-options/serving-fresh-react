@@ -5,7 +5,8 @@ const products = [
     name: "Apple",
     price: "$1.00",
     meaning: "Each",
-    farmName: "Resendiz"
+    farmName: "Resendiz",
+    type: "fruits"
   },
   {
     id: 2,
@@ -13,7 +14,8 @@ const products = [
     name: "Orange",
     price: "$2.99",
     meaning: "Each",
-    farmName: "Resendiz"
+    farmName: "Resendiz",
+    type: "fruits"
   },
   {
     id: 3,
@@ -21,7 +23,8 @@ const products = [
     name: "Peach",
     price: "$1.50",
     meaning: "Each",
-    farmName: "Resendiz"
+    farmName: "Resendiz",
+    type: "fruits"
   },
   {
     id: 4,
@@ -29,7 +32,8 @@ const products = [
     name: "Green bean",
     price: "$0.12",
     meaning: "Each",
-    farmName: "Resendiz"
+    farmName: "Resendiz",
+    type: "fruits"
   },
   {
     id: 5,
@@ -37,7 +41,8 @@ const products = [
     name: "Banana",
     price: "$0.45",
     meaning: "Each",
-    farmName: "Resendiz"
+    farmName: "Resendiz",
+    type: "fruits"
   },
   {
     id: 6,
@@ -45,7 +50,8 @@ const products = [
     name: "Mango",
     price: "$0.80",
     meaning: "Each",
-    farmName: "Resendiz"
+    farmName: "Resendiz",
+    type: "fruits"
   },
   {
     id: 7,
@@ -53,7 +59,8 @@ const products = [
     name: "Strawberry",
     price: "$5.70",
     meaning: "per lb",
-    farmName: "Resendiz"
+    farmName: "Resendiz",
+    type: "fruits"
   },
   {
     id: 8,
@@ -61,7 +68,8 @@ const products = [
     name: "Watermelon",
     price: "$15.50",
     meaning: "Each",
-    farmName: "Resendiz"
+    farmName: "Resendiz",
+    type: "fruits"
   },
   {
     id: 9,
@@ -69,7 +77,8 @@ const products = [
     name: "Cherry",
     price: "$10.01",
     meaning: "per lb",
-    farmName: "Resendiz"
+    farmName: "Resendiz",
+    type: "fruits"
   },
   {
     id: 10,
@@ -77,7 +86,8 @@ const products = [
     name: "Boysenberry Pie",
     price: "$2.00",
     meaning: "each",
-    farmName: "Resendiz"
+    farmName: "Resendiz",
+    type: "dessert"
   },
   {
     id: 11,
@@ -85,7 +95,53 @@ const products = [
     name: "Key Lime Pie",
     price: "$2.00",
     meaning: "each",
-    farmName: "Resendiz"
+    farmName: "Resendiz",
+    type: "dessert"
+  },
+  {
+    id: 12,
+    img: "./fruit_img/pumpkin.jpg",
+    name: "Pumpkin",
+    price: "$5.00",
+    meaning: "each",
+    farmName: "Resendiz",
+    type: "vegetable"
+  },
+  {
+    id: 13,
+    img: "./fruit_img/redPepper.jpg",
+    name: "Red Pepper",
+    price: "$3.00",
+    meaning: "per lb",
+    farmName: "Resendiz",
+    type: "vegetable"
+  },
+  {
+    id: 14,
+    img: "./fruit_img/carrot.jpg",
+    name: "Carrot",
+    price: "$0.30",
+    meaning: "each",
+    farmName: "Resendiz",
+    type: "vegetable"
+  },
+  {
+    id: 15,
+    img: "./fruit_img/egg.jpg",
+    name: "Egg",
+    price: "$4.00",
+    meaning: "dozen",
+    farmName: "Resendiz",
+    type: "others"
+  },
+  {
+    id: 16,
+    img: "./fruit_img/honey.jpg",
+    name: "honey",
+    price: "$6.00",
+    meaning: "each",
+    farmName: "Resendiz",
+    type: "others"
   }
 ];
 
