@@ -8,9 +8,9 @@ body {
 }
 
 footer {
-  background-color: #d6e0f0;
+  background-color: #e9eaea;
   margin: auto -16px;
-  padding: 16px 32px 65px;
+  padding: 16px 32px 165px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
 
@@ -306,6 +306,8 @@ dd dl .term {
   bottom: 0;
   width: 100%;
   z-index: 10;
+  font-size: 30px;
+  text-align: center;
   /* padding-bottom: 80px; */
 }
 
@@ -345,7 +347,11 @@ dd dl .term {
 .link {
   color: #FFF;
   text-decoration: none;
+}
 
+.linkFooter{
+  color: #afafaf;
+  text-decoration: none;
 }
 
 /* .link:hover {
@@ -380,4 +386,29 @@ dd dl .term {
 
 .iconBlock{
   display: block;
+}
+
+/*css for 4 buttons footer*/
+.homeIcon{
+  position: absolute;
+  left: 5%;
+  bottom: 10px;
+}
+
+.orderIcon{
+  position: absolute;
+  left: 30%;
+  bottom: 10px;
+}
+
+.infoIcon{
+  position: absolute;
+  right: 34%;
+  bottom: 10px;
+}
+
+.userIcon{
+  position: absolute;
+  right: 7%;
+  bottom: 10px;
 }
