@@ -52,13 +52,13 @@ h1 span {
   text-align: center;
   max-width: 26rem;
   max-height: 40rem;
-  margin-bottom: 3rem;
+  margin-bottom: 6rem;
   /* padding: 2rem; */
   border-radius: 3px;
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05), 0 5px 20px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   transition: all 100ms ease-in-out;
-  height: 470px;
+  height: 350px;
 }
 
 /* .dictionary > .term > dt {
@@ -111,16 +111,21 @@ dd dl .term {
 /* Name and price of the product */
 .nameAndPrice {
   width: 100%;
-  font-size: 20px;
+  font-size: 25px;
+  position: relative;
+  bottom: 172px;
+  border: 1px solid;
+  border-radius: 15px;
+  height: 60px;
 }
 
 .prodName {
   display: inline-block;
   position: relative;
   margin: 0;
-  /* right: 23%; */
   width: 50%;
   text-align: left;
+  top: 10px;
 }
 
 .prodPrice {
@@ -129,37 +134,49 @@ dd dl .term {
   margin: 0;
   width: 50%;
   text-align: right;
+  top: 10px;
 }
 
 /* increase and decrease button with the amount as integer */
 .numberOfItems {
   width: 100%;
   position: relative; 
-   bottom: 10px;
+   bottom: 190px;
 }
 
 .increBtn {
   position: relative;
-  left: 120px;
-  padding: 10px 15px;
-  border-radius: 50%;
+  padding: 0px 88px;
+  border-radius: 15px;
   outline: none;
-  bottom: 10px;
+  top: 18px;
+  font-size: 60px;
+  opacity: 0.9;
 }
 
 .decreBtn {
   position: relative;
-  right: 120px;
-  padding: 10px 15px;
-  border-radius: 50%;
+  padding: 0px 88px;
+  border-radius: 15px;
   outline: none;
-  bottom: 10px;
+  top: 18px;
+  font-size: 60px;
+  opacity: 0.9;
 }
 
 .amount {
   display: inline-block;
   width: 8%;
   font-size: 25px;
+}
+.amountOnItem{
+  background-color: white;
+  position: relative;
+  bottom: 360px;
+  border-radius: 15px;
+  width: 25%;
+  opacity: 0.9;
+  right: 1px;
 }
 
 /* checkout Button */
@@ -250,7 +267,7 @@ dd dl .term {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 10;
 }
 
 #ex4{
@@ -273,7 +290,7 @@ dd dl .term {
   background:white;
   text-align:center;
   min-width: 1em;
-  z-index: 1;
+  z-index: 10;
 }
 
 .backArrow{
@@ -286,7 +303,7 @@ dd dl .term {
   position: fixed;
   bottom: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 10;
   /* padding-bottom: 80px; */
 }
 
@@ -308,7 +325,7 @@ dd dl .term {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 10;
   padding-bottom: 80px;
 }
 
@@ -318,4 +335,14 @@ dd dl .term {
   width: 100%;
   z-index: 1;
   /* padding-bottom: 80px; */
+}
+
+
+
+/* make link /a href white*/
+.link {
+  color: #FFF;
+}
+.link:hover {
+   color: #FF8500
 }

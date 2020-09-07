@@ -77,19 +77,19 @@ function Entry(props) {
           <img src={props.img} alt={tempName.substring(12)} />
         </span>
       </dt>
-      <div className="nameAndPrice">
-        <dd className="prodName">{props.meaning}</dd>
-        <dd className="prodPrice">{props.price}</dd>
-      </div>
-      <hr className="hrProduct" />
+      <div className="amountOnItem"><h3 className="amount">{count}</h3></div>
       <div className="numberOfItems">
         <button className="decreBtn" onClick={decrease}>
           -
         </button>
-        <h3 className="amount">{count}</h3>
         <button className="increBtn" onClick={increase}>
           +
         </button>
+      </div>
+      {/* <hr className="hrProduct" /> */}
+      <div className="nameAndPrice">
+        <dd className="prodName">{props.name}</dd>
+        <dd className="prodPrice">{props.price} ({props.meaning})</dd>
       </div>
     </div>
   );

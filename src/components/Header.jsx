@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import someContexts from "./makeContext";
+import { Link } from "react-router-dom";
 
 function Header(props) {
   const cartContext = useContext(someContexts);
@@ -10,16 +11,13 @@ function Header(props) {
       <i className="fas fa-chevron-left">Farms</i>
     </div>
     <h2 className="h2Header">{props.farmName}</h2>
-    <div id="ex4">
-      <span className="p1 fa-stack fa-2x has-badge" data-count={itemsAmount}>
-      {/* <i class="p2 fa fa-circle fa-stack-2x"></i>  */}
-      <i className="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse" data-count="4b"></i>
-      </span>
-    </div>
-    {/* <div className="backArrow">
-      <i class="fas fa-chevron-left"> Back</i>
-    </div> */}
-    
+    <Link className="link" to="/cart">
+      <div id="ex4">
+        <span className="p1 fa-stack fa-2x has-badge" data-count={itemsAmount}>
+        <i className="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse" data-count="4b"></i>
+        </span>
+      </div>
+    </Link>
    </div> );
 }
 

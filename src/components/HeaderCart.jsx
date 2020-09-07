@@ -8,13 +8,15 @@ function HeaderCart(props) {
   return (<div>
     <img className="userIconHeader"  src="../footer_icon/person (2).png" alt="user-icon"/>
     <h2 className="h2Header">Checkout</h2>
-    <div id="ex4">
-      <span className="p1 fa-stack fa-2x has-badge" data-count={itemsAmount}>
-      <i className="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse" data-count="4b"></i>
-      </span>
-    </div>
+    <Link className="link" to="/cart">
+      <div id="ex4">
+       <span className="p1 fa-stack fa-2x has-badge" data-count={itemsAmount}>
+       <i className="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse" data-count="4b"></i>
+       </span>
+      </div>
+    </Link>
     <div className="backArrowCart">
-      <Link to="/"><i class="fas fa-chevron-left"> Back</i></Link>
+      <Link className="link" to="/"><i className="fas fa-chevron-left"> Back</i></Link>
     </div>   
    </div> );
 }
