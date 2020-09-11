@@ -1,65 +1,58 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Chip from '@material-ui/core/Chip';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import { shadows } from '@material-ui/system';
-import Box from '@material-ui/core/Box';
+import Chip from '@material-ui/core/Chip';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    // width: '100%',
-    // maxWidth: 500,
-    backgroundColor: theme.palette.background.paper,
-  },
-  chip: {
-    margin: theme.spacing(0.5),
-    background: '#136D74'
-  },
-  section1: {
-    margin: theme.spacing(3, 2),
-  },
-  section2: {
-    margin: theme.spacing(2),
-  },
-  section3: {
-    margin: theme.spacing(3, 1, 1),
-  },
-}));
+const useStyles = makeStyles({
+    root: {
+        maxwidth: 345,
+        maxheight: 345
+    },
+    media: {
+        height: 140,
+    },
+});
 
-export default function MiddleDividers(props) {
-  const classes = useStyles();
-
-  return (
-    <div className={classes.root}>
-      <Box boxShadow={2} width="500px">
-        <div className={classes.section1}>
-          <Grid container alignItems="center">
-            <Grid item xs>
-              <Typography gutterBottom variant="h4" style={{padding:'10px'}}>
-                {props.produce.name}
-            </Typography>
-            </Grid>
-           
-          </Grid>
-          <Typography color="textSecondary" variant="body2">
-            Buy Grocery items from this farm!
-        </Typography>
+const FarmTile = props => {
+    const classes = useStyles();
+    return (
+        <div>
+            <Card className={classes.root}>
+                <CardActionArea>
+                    <CardMedia
+                        className={classes.media}
+                        image="https://st.depositphotos.com/1063437/2769/i/450/depositphotos_27699157-stock-photo-green-shopping-bag-with-grocery.jpg"
+                        title="Grocery"
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            {props.produce.name}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                            Selling tasty produce!
+                            <div>
+                                <Chip className={classes.chip} label={<span style={{ color: '#FFFFFF' }}>{props.produce.type}</span>} />
+                            </div>
+                        </Typography>
+                        
+                    </CardContent>
+                </CardActionArea>
+                <CardActions>
+                    <Button size="small" color="primary">
+                        Go to farm!
+                    </Button>
+                </CardActions>
+            </Card>
         </div>
-        <Divider variant="middle" />
-        <div className={classes.section2}>
-          <div>
-            <Chip className={classes.chip} label={<span style={{color:'#FFFFFF'}}>{props.produce.type}</span>} />
-          </div>
-        </div>
-        <div className={classes.section3}>
-          <Button color="primary">Go to Farm</Button>
-        </div>
+    );
+};
 
-      </Box>
 
-    </div>
-  );
-}
+
+export default FarmTile;
