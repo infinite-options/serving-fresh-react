@@ -74,7 +74,7 @@ function Entry(props) {
     <div className="term">
       <dt>
         <span className="emoji" role="img" aria-label="Fruit">
-          <img src={props.img} alt={tempName.substring(12)} />
+          <img src={props.img} alt={tempName} />
         </span>
       </dt>
       <div className="amountOnItem"><h3 className="amount">{count}</h3></div>
@@ -89,7 +89,7 @@ function Entry(props) {
       {/* <hr className="hrProduct" /> */}
       <div className="nameAndPrice">
         <dd className="prodName">{props.name}</dd>
-        <dd className="prodPrice">{props.price} ({props.meaning})</dd>
+        <dd className="prodPrice">{props.price} {props.meaning}</dd>
       </div>
     </div>
   );

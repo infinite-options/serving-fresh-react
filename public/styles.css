@@ -17,7 +17,7 @@ footer {
 header {
   background-color: #136d74;
   margin: auto -16px;
-  padding: 50px 32px 130px;
+  padding: 50px 32px 90px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   font-size: 40px;
   color: white;
@@ -213,23 +213,13 @@ dd dl .term {
   right: 40px;
 }
 
-/* hr line over increase and decrease button */
-/* .hrProduct {
-  position: relative;
-  bottom: -15px;
-} */
-
 .refundIcon {
   position: absolute;
-  /* left: 43%; */
   right: 45%;
 }
 
 /* cart with number */
 .fa-stack[data-count]:after {
-  /* position: absolute;
-  right: 0%;
-  top: 0%; */
   content: attr(data-count);
   font-size: 40%;
   padding: 0.6em;
@@ -257,6 +247,13 @@ dd dl .term {
   display: inline-block;
 }
 
+.h2HeaderCart{
+  display: inline-block;
+  font-size: 70px;
+  position: relative;
+  bottom: -10px;
+}
+
 .h2Header{
   display: inline-block;
   font-size: 70px;
@@ -264,12 +261,19 @@ dd dl .term {
   bottom: 40px;
 }
 
-
 .sticky {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 10;
+  padding-left: 18px;
+}
+
+.blackHrHeaderSHop{
+  position: relative;
+    bottom: 120px;
+    /* color: black; */
+    border-color: black;
 }
 
 #ex4{
@@ -308,14 +312,13 @@ dd dl .term {
   z-index: 10;
   font-size: 30px;
   text-align: center;
-  /* padding-bottom: 80px; */
 }
 
 
 /*all css for cart page*/
 .backArrowCart{
   position: absolute;
-  bottom: 30px;
+  top: 100px;
   left: 50px;
 }
 
@@ -330,7 +333,9 @@ dd dl .term {
   top: 0;
   width: 100%;
   z-index: 10;
-  padding-bottom: 80px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  height: 180px;
 }
 
 .stickyFooterCart{
@@ -338,14 +343,18 @@ dd dl .term {
   bottom: 0;
   width: 100%;
   z-index: 1;
-  /* padding-bottom: 80px; */
 }
 
 
 
 /* make link /a href white*/
 .link {
-  color: #FFF;
+  color: white;
+  text-decoration: none;
+}
+
+.link4Button {
+  color: #cecece;
   text-decoration: none;
 }
 
@@ -386,6 +395,45 @@ dd dl .term {
 
 .iconBlock{
   display: block;
+}
+
+.cartPageBody{
+  margin-top: 220px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.colorGreen{
+  color: #136d74;
+  display: inline-block;
+  position: absolute;
+  left: 3%;
+}
+
+.colorGreenDelivery{
+  color: #136d74;
+  display: inline-block;
+  position: relative;
+  right: 190px;
+}
+
+.h3InfoText{
+  display: inline-block;
+  width: 500px;
+  position: relative;
+  left: 20%;
+  text-align: left;
+}
+
+.changeAddress{
+  display: block;
+  width: 490px;
+  position: relative;
+  left: 32%;
+}
+
+.hrsection{
+  margin: 40px auto;
 }
 
 /*css for 4 buttons footer*/

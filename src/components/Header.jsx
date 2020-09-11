@@ -42,29 +42,28 @@ function Header(props) {
         </span>
       </div>
     </Link>
-
+    <hr className="blackHrHeaderSHop"></hr>
     <div>
-      <div className={fruitClick ? "link sort1" : "link sort1 colorClick"} onClick={fruitClicking}>
+      <div className={fruitClick ? "link4Button sort1" : "link4Button sort1 colorClick"} onClick={fruitClicking}>
       <i className="fas fa-apple-alt fa-3x iconBlock" ></i>
       <span>fruits</span>
       </div>
 
-      <div className={vegeClick ? "link sort2" : "link sort2 colorClick"} onClick={vegeClicking}>
+      <div className={vegeClick ? "link4Button sort2" : "link4Button sort2 colorClick"} onClick={vegeClicking}>
       <i className="fas fa-carrot fa-3x iconBlock"></i>
       <span>Vegetables</span>
       </div>
 
-      <div className={dessertClick ? "link sort3" : "link sort3 colorClick"} onClick={dessertClicking}>
+      <div className={dessertClick ? "link4Button sort3" : "link4Button sort3 colorClick"} onClick={dessertClicking}>
       <i className="fas fa-ice-cream fa-3x iconBlock"></i>
       <span>Desserts</span>
       </div>
 
-      <div className={othersClick ? "link sort4" : "link sort4 colorClick"} onClick={othersClicking}>
+      <div className={othersClick ? "link4Button sort4" : "link4Button sort4 colorClick"} onClick={othersClicking}>
       <i className="fas fa-bread-slice fa-3x iconBlock"></i>
       <span>Others</span>
       </div>
     </div>
-    
    </div> );
 }
 

@@ -6,8 +6,8 @@ function HeaderCart(props) {
   const cartContext = useContext(someContexts);
   var itemsAmount = cartContext.cartTotal;
   return (<div>
-    <img className="userIconHeader"  src="../footer_icon/person (2).png" alt="user-icon"/>
-    <h2 className="h2Header">Checkout</h2>
+    {/* <img className="userIconHeader"  src="../footer_icon/person (2).png" alt="user-icon"/> */}
+    <h2 className="h2HeaderCart">Checkout</h2>
     <Link className="link" to="/cart">
       <div id="ex4">
        <span className="p1 fa-stack fa-2x has-badge" data-count={itemsAmount}>
@@ -16,7 +16,7 @@ function HeaderCart(props) {
       </div>
     </Link>
     <div className="backArrowCart">
-      <Link className="link" to="/"><i className="fas fa-chevron-left"> Back</i></Link>
+      <Link className="link" to="/"><i className="fas fa-chevron-left fa-lg"> Back</i></Link>
     </div>   
    </div> );
 }
