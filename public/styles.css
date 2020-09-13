@@ -382,10 +382,19 @@ dd dl .term {
   left: 26%;
   top: 220px;
 }
+.positioningSsort2{
+  position: relative;
+  left: 80px;
+}
+
 .sort3{
   position: absolute;
   top: 220px;
   right: 30%;
+}
+.positioningSsort3{
+  position: relative;
+  left: 25px;
 }
 .sort4{
   position: absolute;
@@ -395,7 +404,9 @@ dd dl .term {
 
 .iconBlock{
   display: block;
+  height: 120px;
 }
+
 
 .cartPageBody{
   margin-top: 220px;
@@ -425,12 +436,12 @@ dd dl .term {
   text-align: left;
 }
 
-.changeAddress{
+/* .changeAddress{
   display: block;
   width: 490px;
   position: relative;
   left: 32%;
-}
+} */
 
 .hrsection{
   margin: 40px auto;
@@ -460,3 +471,106 @@ dd dl .term {
   right: 7%;
   bottom: 10px;
 }
+
+
+/*Here is the section for all the css of checkout page page*/
+.threeBottonOrders{
+  margin-top: 180px;
+}
+
+.checkoutAndRefundBtn{
+  width: 33%;
+  height: 100px;
+  font-size: 40px;
+  background-color: #136d74;
+  color: white;
+  outline: none;
+}
+
+.HistoryButton{
+  width: 34%;
+  height: 100px;
+  font-size: 40px;
+  background-color: #136d74;
+  color: white;
+  outline: none;
+}
+
+.contentLeft{
+  width: 50%;
+  float: left;
+  font-size: 38px;
+  position: relative;
+  left: 35px;
+  color: #136d74;
+}
+
+.contentRight{
+  width: 50%;
+  float: right;
+  font-size: 35px;
+}
+
+.eachBlockDiv{
+  margin-top: 40px;
+  width: 100%;
+  height: 130px;
+}
+
+.eachBlockDiv2{
+  margin-top: 40px;
+  width: 100%;
+  height: 220px;
+}
+
+.eachBlockDiv3{
+  margin-top: 40px;
+  width: 100%;
+  height: 80px;
+}
+
+.addMoreBtn{
+  background-color: #ff5f40;
+  font-size: 35px;
+  float: right;
+  color: white;
+  outline: none;
+  position: relative;
+  right: 30px;
+  border-radius: 15%;
+}
+
+
+/*css for cartItem component*/
+.priceRight{
+  font-size: 35px;
+  float: right;
+  position: relative;
+  right: 30px;
+}
+
+.justMakeSpace{
+  margin-bottom: 500px;
+}
+
+.counterItemCart{
+  display: inline-block;
+  width: 80px;
+  text-align: center;
+  color: #FF8500
+}
+
+.contentRight1{
+  width: 40%;
+  float: right;
+  font-size: 35px;
+}
+
+.contentLeft1{
+  width: 53%;
+  float: left;
+  font-size: 35px;
+  position: relative;
+  left: 35px;
+}
+

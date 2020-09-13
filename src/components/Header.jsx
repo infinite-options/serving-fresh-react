@@ -30,7 +30,6 @@ function Header(props) {
 
 
   return(<div>
-    {/* <img className="userIconHeader"  src="../footer_icon/person (2).png" alt="user-icon"/> */}
     <div className="backArrow">
       <i className="fas fa-chevron-left fa-lg"> Farms</i>
     </div>
@@ -45,23 +44,27 @@ function Header(props) {
     <hr className="blackHrHeaderSHop"></hr>
     <div>
       <div className={fruitClick ? "link4Button sort1" : "link4Button sort1 colorClick"} onClick={fruitClicking}>
-      <i className="fas fa-apple-alt fa-3x iconBlock" ></i>
-      <span>fruits</span>
+        <img className= "iconBlock" src= "./footer_icon/Asset 7.png" alt="fruit-img"></img>
+        {/* <i className="fas fa-apple-alt fa-3x iconBlock" ></i> */}
+        <span>fruits</span>
       </div>
 
       <div className={vegeClick ? "link4Button sort2" : "link4Button sort2 colorClick"} onClick={vegeClicking}>
-      <i className="fas fa-carrot fa-3x iconBlock"></i>
-      <span>Vegetables</span>
+        <img className= "iconBlock positioningSsort2" src= "./footer_icon/Asset 4.png" alt="vegetable-img"></img>
+        {/* <i className="fas fa-carrot fa-3x iconBlock"></i> */}
+        <span>Vegetables</span>
       </div>
 
       <div className={dessertClick ? "link4Button sort3" : "link4Button sort3 colorClick"} onClick={dessertClicking}>
-      <i className="fas fa-ice-cream fa-3x iconBlock"></i>
-      <span>Desserts</span>
+        <img className= "iconBlock positioningSsort3" src= "./footer_icon/Asset 6.png" alt="desert-img"></img>
+        {/* <i className="fas fa-ice-cream fa-3x iconBlock"></i> */}
+        <span>Desserts</span>
       </div>
 
       <div className={othersClick ? "link4Button sort4" : "link4Button sort4 colorClick"} onClick={othersClicking}>
-      <i className="fas fa-bread-slice fa-3x iconBlock"></i>
-      <span>Others</span>
+        <img className= "iconBlock" src= "./footer_icon/Asset 5.png" alt="bread-img"></img>
+        {/* <i className="fas fa-bread-slice fa-3x iconBlock"></i> */}
+        <span>Others</span>
       </div>
     </div>
    </div> );

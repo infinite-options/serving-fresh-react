@@ -20,25 +20,29 @@ function Footer() {
   }
   return (
     <footer className="stickyFooter">
-      <div>
+    <div>
       <div className={homeClick ? "linkFooter homeIcon" : "linkFooter homeIcon colorClick"} onClick={homeClicking}>
-      <i className="fas fa-home fa-3x iconBlock" ></i>
-      <span>Farms</span>
+        <img className= "iconBlock" src= "./footer_icon/Asset 1.png" alt="fruit-img"></img>
+       {/* <i className="fas fa-home fa-3x iconBlock" ></i> */}
+        <span>Days</span>
       </div>
 
       <div className={orderClick ? "linkFooter orderIcon" : "linkFooter orderIcon colorClick"} onClick={orderClicking}>
-      <i className="fas fa-dollar-sign fa-3x iconBlock"></i>
-      <span>Orders</span>
+       <img className= "iconBlock" src= "./footer_icon/Asset 9.png" alt="fruit-img"></img>
+        {/* <i className="fas fa-dollar-sign fa-3x iconBlock"></i> */}
+       <span>Orders</span>
       </div>
 
       <div className={infoClick ? "linkFooter infoIcon" : "linkFooter infoIcon colorClick"} onClick={infoClicking}>
-      <i className="fas fa-info-circle fa-3x iconBlock"></i>
-      <span>Info</span>
+        <img className= "iconBlock" src= "./footer_icon/Asset 10.png" alt="fruit-img"></img>
+       {/* <i className="fas fa-info-circle fa-3x iconBlock"></i> */}
+       <span>Info</span>
       </div>
 
       <div className={userClick ? "linkFooter userIcon" : "linkFooter userIcon colorClick"} onClick={userClicking}>
-      <i className="fas fa-user-circle fa-3x iconBlock"></i>
-      <span>Profile</span>
+        <img className= "iconBlock" src= "./footer_icon/Asset 8.png" alt="fruit-img"></img>
+       {/* <i className="fas fa-user-circle fa-3x iconBlock"></i> */}
+        <span>Profile</span>
       </div>
     </div>
     </footer>

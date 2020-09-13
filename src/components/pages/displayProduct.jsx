@@ -114,7 +114,7 @@ function DisplayProduct() {
     );
   }else{
     return(
-      <div>Error</div>
+      <div>Please wait.. We are loading the products for you..!</div>
     );
   }
 }

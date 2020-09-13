@@ -8,7 +8,7 @@ function itemsCart() {
     keys = Object.keys(localStorage),
     index = keys.length;
   for (var i = 0; i < index; i++) {
-    if (keys[i].length > 15) {
+    if (keys[i].length > 30) {
       arr.push(JSON.parse(keys[i]));
     }
   }
@@ -21,7 +21,7 @@ function calTotal(){
     keys = Object.keys(localStorage),
     index = keys.length;
   for (var i = 0; i < index; i++) {
-    if (keys[i].length > 15) {
+    if (keys[i].length > 30) {
       var quantity= window.localStorage.getItem(keys[i]);
       amount += parseInt(quantity);
       // arr.push(JSON.parse(keys[i]));
