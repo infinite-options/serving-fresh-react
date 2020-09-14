@@ -31,7 +31,7 @@ function Header(props) {
 
   return(<div>
     <div className="backArrow">
-      <i className="fas fa-chevron-left fa-lg"> Farms</i>
+      <Link className="link" to="/farms"><i className="fas fa-chevron-left fa-lg"> Farms</i></Link>
     </div>
     <h2 className="h2Header">{props.farmName}</h2>
     <Link className="link" to="/cart">
