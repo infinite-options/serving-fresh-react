@@ -38,7 +38,6 @@ function CartItem(props){
     const [counter, setCounter] = useState(getQuantity);
 
     function decrease(){
-        console.log("Decrease is clicked");
         var holdCount2 = counter - 1;
         if(holdCount2 >= 0){
             setCounter(holdCount2);
@@ -51,7 +50,6 @@ function CartItem(props){
     }
 
     function increase(){
-        console.log("Increase is clicked");
         var holdCount1 = counter + 1;
         setCounter(holdCount1);
         var holdItem1 = props;

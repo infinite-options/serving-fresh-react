@@ -5,6 +5,7 @@ import someContexts from "./makeContext";
 function HeaderCart() {
   const cartContext = useContext(someContexts);
   var itemsAmount = cartContext.cartTotal;
+  console.log(itemsAmount);
   return (<div>
     {/* <img className="userIconHeader"  src="../footer_icon/person (2).png" alt="user-icon"/> */}
     <h2 className="h2HeaderCart">Orders</h2>
