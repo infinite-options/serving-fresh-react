@@ -549,10 +549,6 @@ dd dl .term {
   right: 30px;
 }
 
-.justMakeSpace{
-  margin-bottom: 500px;
-}
-
 .counterItemCart{
   display: inline-block;
   width: 80px;
@@ -574,3 +570,63 @@ dd dl .term {
   left: 35px;
 }
 
+/* horizontal scrolling bar*/
+/* .coupon {
+  width: 100px;
+  height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transform: rotate(-90deg);
+  transform-origin: right top;
+}
+
+.slide{
+  width: 100px;
+  height: 100px;
+  transform: rotate(90deg);
+  transform-origin: right top;
+} */
+
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  /* -webkit-overflow-scrolling: touch; */
+}
+
+.card {
+  display: inline-block;
+  height: 250px;
+  margin: auto 50px;
+}
+
+.lineAboveCoupon{
+  font-size: 30px;
+  margin: 30px auto 20px;
+  position: relative;
+  left: 30px;
+  display: inline-block;
+}
+
+
+
+
+.justMakeSpace{
+  margin-bottom: 300px;
+  margin-top: 100px;
+}
+
+.PayBtn{
+  font-size: 35px;
+  width: 90%;
+  position: relative;
+  left: 5%;
+  border-radius: 15px;
+  height: 80px;
+  color: #FF8500;
+  outline: none;
+}
+
+.colorPromo{
+  color: #136d74;
+}
