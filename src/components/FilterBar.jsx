@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import FilterButtons from './FilterButtons';
 import Box from '@material-ui/core/Box';
+import { width } from '@material-ui/system';
 
 
 
@@ -15,7 +16,9 @@ const useStyles = makeStyles((theme) => ({
     width: '100%'
   },
   colorPrimary:{
-    background:'#136D74'
+    background:'#136D74',
+    width:'100%',
+    overflow:'hidden'
     
 }
  

@@ -1,10 +1,10 @@
-import React, {Component, PropTypes} from 'react'
+import React, { Component, PropTypes } from 'react'
 import TextField from '@material-ui/core/TextField';
-//import getMuiTheme from '@material-ui/styles/getMuiTheme'
-//import MuiThemeProvider from '@material-ui/styles/MuiThemeProvider'
+import { Box } from '@material-ui/core'
 import Paper from '@material-ui/core/Paper';
-
+import Background from '../welcome-bg.png'
 import ReactTelephoneInput from 'react-telephone-input'
+import Button from '@material-ui/core/Button';
 
 export default class signup extends Component {
   constructor(props) {
@@ -62,11 +62,11 @@ export default class signup extends Component {
   }
 
   _handleAccountChange(e, val) {
-    this.setState({account: val})
+    this.setState({ account: val })
   }
 
   _handlePasswordChange(e, val) {
-    this.setState({password: val})
+    this.setState({ password: val })
   }
 
   _handleConfirmPasswordChange(e, val) {
@@ -74,7 +74,7 @@ export default class signup extends Component {
     if (val != this.state.password) {
       errorText = 'Passwords are not matched'
     }
-    this.setState({confirmPassword: val, confirmPasswordErrorText: errorText})
+    this.setState({ confirmPassword: val, confirmPasswordErrorText: errorText })
   }
 
   _handleEmailChange(e, val) {
@@ -82,7 +82,7 @@ export default class signup extends Component {
     if (!this.validateEmail(val)) {
       errorText = "Email Format Error"
     }
-    this.setState({emailErrorText: errorText, email: val})
+    this.setState({ emailErrorText: errorText, email: val })
   }
 
   _handleInputChange(telNumber, selectedCountry) {
@@ -91,80 +91,87 @@ export default class signup extends Component {
 
   _handleInputBlur(telNumber, selectedCountry) {
     console.log('Focus off the ReactTelephoneInput component. Tel number entered is: ', telNumber, ' selected country is: ', selectedCountry);
-    this.setState({telNum: telNumber})
+    this.setState({ telNum: telNumber })
   }
 
   render() {
     return (
-      <Paper style={this.getStyle()}>
-        <p>SIGN UP</p>
-        <form onSubmit={this._onSubmit.bind(this)}>
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        style={{ backgroundImage: `url(${Background})` }}
+      >
+        <Paper style={this.getStyle()}>
+          <p>SIGN UP</p>
+          <form onSubmit={this._onSubmit.bind(this)}>
 
 
-        <TextField
-          value={this.state.account}
-          onChange={this._handleAccountChange.bind(this)}
-          hintText="Account"
-          floatingLabelText="Account"
-          floatingLabelFixed={true}
-          label="First Name"
-        />
-        <br />
+            <TextField
+              value={this.state.account}
+              onChange={this._handleAccountChange.bind(this)}
+              hintText="Account"
+              floatingLabelText="Account"
+              floatingLabelFixed={true}
+              label="First Name"
+            />
+            <br />
 
 
-        <TextField
-          value={this.state.password}
-          onChange={this._handlePasswordChange.bind(this)}
-          hintText="Password"
-          floatingLabelText="Password"
-          floatingLabelFixed={true}
-          type="password"
-          label="First Name"
-        />
-        <br />
+            <TextField
+              value={this.state.password}
+              onChange={this._handlePasswordChange.bind(this)}
+              hintText="Password"
+              floatingLabelText="Password"
+              floatingLabelFixed={true}
+              type="password"
+              label="First Name"
+            />
+            <br />
 
-        <TextField
-          value={this.state.confirmPassword}
-          errorText={this.state.confirmPasswordErrorText}
-          onChange={this._handleConfirmPasswordChange.bind(this)}
-          hintText="Confirmed Password"
-          floatingLabelText="Confirmed Password"
-          floatingLabelFixed={true}
-          type="password"
-          label="First Name"
-        />
-        <br />
+            <TextField
+              value={this.state.confirmPassword}
+              errorText={this.state.confirmPasswordErrorText}
+              onChange={this._handleConfirmPasswordChange.bind(this)}
+              hintText="Confirmed Password"
+              floatingLabelText="Confirmed Password"
+              floatingLabelFixed={true}
+              type="password"
+              label="First Name"
+            />
+            <br />
 
-        <TextField
-          value={this.state.email}
-          errorText={this.state.emailErrorText}
-          onChange={this._handleEmailChange.bind(this)}
-          hintText="Email"
-          floatingLabelText="Email"
-          floatingLabelFixed={true}
-          label="First Name"
-        />
-        <br />
+            <TextField
+              value={this.state.email}
+              errorText={this.state.emailErrorText}
+              onChange={this._handleEmailChange.bind(this)}
+              hintText="Email"
+              floatingLabelText="Email"
+              floatingLabelFixed={true}
+              label="First Name"
+            />
+            <br />
 
 
-        <div>
-        <ReactTelephoneInput
-              flagsImagePath='static/images/flags.png'
-              defaultCountry='id'
-              onChange={this._handleInputChange.bind(this)}
-              onBlur={this._handleInputBlur.bind(this)}
-              preferredCountries={['sg', 'id', 'cn', 'tw']}
+            <div>
+              <ReactTelephoneInput
+                flagsImagePath='static/images/flags.png'
+                defaultCountry='id'
+                onChange={this._handleInputChange.bind(this)}
+                onBlur={this._handleInputBlur.bind(this)}
+                preferredCountries={['sg', 'id', 'cn', 'tw']}
               />
-        </div>
-        <br />
-        <br />
-        <br />
-        <div>
-          <button type="submit">Submit</button>
-          <button type="button" onClick={this._onReset.bind(this)}>Reset</button>
-        </div>
-        </form>
-      </Paper>
+            </div>
+            <br />
+            <br />
+            <br />
+            <div>
+              <Button variant="contained" type="submit">Submit</Button>
+              <Button variant="contained" style={{ marginLeft: '20px' }} type="button" onClick={this._onReset.bind(this)}>Reset</Button>
+            </div>
+          </form>
+        </Paper>
+      </Box>
     )
   }
 }
