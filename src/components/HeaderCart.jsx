@@ -17,10 +17,9 @@ function HeaderCart() {
       </div>
     </Link>
     <div className="backArrowCart">
-      <Link className="link" to="/"><i className="fas fa-chevron-left fa-lg"> Back</i></Link>
-    </div>
-   </div>
-    );
+      <Link className="link" to="/products"><i className="fas fa-chevron-left fa-lg"> Back</i></Link>
+    </div>   
+   </div> );
 }
 
 export default HeaderCart;
