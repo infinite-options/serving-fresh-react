@@ -61,10 +61,6 @@ h1 span {
   height: 350px;
 }
 
-/* .dictionary > .term > dt {
-  margin-bottom: 1rem;
-} */
-
 dt {
   color: #2ec2b0;
   line-height: 1;
@@ -85,10 +81,6 @@ dt img {
   display: block;
   font-size: 400%;
 }
-
-/* dd {
-  font-size: 92.5%;
-} */
 
 dd dt {
   margin-top: 1rem;
@@ -314,7 +306,6 @@ dd dl .term {
   text-align: center;
 }
 
-
 /*all css for cart page*/
 .backArrowCart{
   position: absolute;
@@ -436,13 +427,6 @@ dd dl .term {
   text-align: left;
 }
 
-/* .changeAddress{
-  display: block;
-  width: 490px;
-  position: relative;
-  left: 32%;
-} */
-
 .hrsection{
   margin: 40px auto;
 }
@@ -472,10 +456,11 @@ dd dl .term {
   bottom: 10px;
 }
 
-
 /*Here is the section for all the css of checkout page page*/
 .threeBottonOrders{
-  margin-top: 180px;
+  position: relative;
+  right: 16px;
+  bottom: 50px;
 }
 
 .checkoutAndRefundBtn{
@@ -517,6 +502,12 @@ dd dl .term {
   height: 130px;
 }
 
+.firstBlockDiv{
+  margin-top: 330px;
+  width: 100%;
+  height: 130px;
+}
+
 .eachBlockDiv2{
   margin-top: 40px;
   width: 100%;
@@ -539,7 +530,6 @@ dd dl .term {
   right: 30px;
   border-radius: 15%;
 }
-
 
 /*css for cartItem component*/
 .priceRight{
@@ -570,23 +560,6 @@ dd dl .term {
   left: 35px;
 }
 
-/* horizontal scrolling bar*/
-/* .coupon {
-  width: 100px;
-  height: 300px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  transform: rotate(-90deg);
-  transform-origin: right top;
-}
-
-.slide{
-  width: 100px;
-  height: 100px;
-  transform: rotate(90deg);
-  transform-origin: right top;
-} */
-
 .scrolling-wrapper {
   overflow-x: scroll;
   overflow-y: hidden;
@@ -607,9 +580,6 @@ dd dl .term {
   left: 30px;
   display: inline-block;
 }
-
-
-
 
 .justMakeSpace{
   margin-bottom: 300px;

@@ -145,13 +145,13 @@ function Cart() {
   return (
     <div>
       <header className="stickyCart"><HeaderCart/></header>
-      <div className="threeBottonOrders">
+      {/* <div className="threeBottonOrders">
         <button className="checkoutAndRefundBtn">Checkout</button>
         <button className="HistoryButton">History</button>
         <button className="checkoutAndRefundBtn">Refund</button>
-      </div>
+      </div> */}
 
-      <div className="eachBlockDiv">
+      <div className="firstBlockDiv">
         <div className="contentLeft">Delivery Address:</div>
         <div className="contentRight">{address}</div>
       </div>

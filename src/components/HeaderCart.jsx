@@ -18,8 +18,20 @@ function HeaderCart() {
     </Link>
     <div className="backArrowCart">
       <Link className="link" to="/products"><i className="fas fa-chevron-left fa-lg"> Back</i></Link>
+    </div>
+
+    <div className="threeBottonOrders">
+        <button className="checkoutAndRefundBtn">Checkout</button>
+        <button className="HistoryButton">History</button>
+        <button className="checkoutAndRefundBtn">Refund</button>
     </div>   
    </div> );
 }
 
 export default HeaderCart;
+
+{/* <div className="">
+        <button className="checkoutAndRefundBtn">Checkout</button>
+        <button className="HistoryButton">History</button>
+        <button className="checkoutAndRefundBtn">Refund</button>
+    </div>    */}
