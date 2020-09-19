@@ -3,7 +3,7 @@ import React from "react";
 function HistoryItem(props){
     return(
         <div>
-            <div className="eachBlockDiv3">
+            <div className="eachBlockDiv3" key={props.key}>
                 <hr></hr>
                 <div className="contentLeft1 fixLocationOldItem">{props.itemName}</div>
                 <div className="contentRight1 ">

@@ -6,8 +6,8 @@ function createProductCardHis(props){
         quantity= {props.qty}
         itemName = {props.name}
         itemPrice = {props.price}
-        id ={props.item_uid}
-        key = {props.item_uid}
+        id ={props.paymentID}
+        key = {props.paymentID}
     />);
 }
 
@@ -31,6 +31,11 @@ function HistoryCard(props){
             <div className="contentRight1 ">
                 <div className="priceRight fixLocationOldItem">${props.price}</div>
             </div>
+        </div>
+
+        <div className="div2btn">
+            <button className="ViewBtn" >View Receipt</button>
+            <button className="HelpBtn" >Get Help</button>
         </div>
 
         <hr className="lastHr"></hr>

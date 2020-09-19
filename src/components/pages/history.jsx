@@ -11,10 +11,12 @@ function createHistoryCard(props){
         <HistoryCard
             shipping_address = {props.delivery_address}
             purchaseID = {props.purchase_uid}
-            key = {props.delivery_email}
+            key = {props.payment_uid}
+            id= {props.payment_uid}
             date = {props.purchase_date}
             price = {props.amount_paid}
             products = {holdItem}
+            paymentID = {props.payment_uid}
         />
     );
 }
