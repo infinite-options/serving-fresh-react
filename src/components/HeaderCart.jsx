@@ -1,11 +1,15 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import someContexts from "./makeContext";
+import { useHistory } from "react-router-dom";
 
 function HeaderCart() {
   const cartContext = useContext(someContexts);
   var itemsAmount = cartContext.cartTotal;
-  console.log(itemsAmount);
+  // console.log(itemsAmount);
+  const history = useHistory();
+  const goCheckout = () => history.push("/cart");
+  const goHistory = () => history.push("/history");
   return (<div>
     {/* <img className="userIconHeader"  src="../footer_icon/person (2).png" alt="user-icon"/> */}
     <h2 className="h2HeaderCart">Orders</h2>
@@ -21,17 +25,11 @@ function HeaderCart() {
     </div>
 
     <div className="threeBottonOrders">
-        <button className="checkoutAndRefundBtn">Checkout</button>
-        <button className="HistoryButton">History</button>
+        <button className="checkoutAndRefundBtn" onClick={goCheckout}>Checkout</button>
+        <button className="HistoryButton" onClick={goHistory}>History</button>
         <button className="checkoutAndRefundBtn">Refund</button>
     </div>   
    </div> );
 }
 
 export default HeaderCart;
-
-{/* <div className="">
-        <button className="checkoutAndRefundBtn">Checkout</button>
-        <button className="HistoryButton">History</button>
-        <button className="checkoutAndRefundBtn">Refund</button>
-    </div>    */}

@@ -79,6 +79,7 @@ function DisplayProduct() {
         const responseData = await response.json();
         console.log("Got the Data");
         if(!flag){
+          // console.log(responseData.result.result);
           SetfetchData(responseData.result.result);
         }
       }catch(err){

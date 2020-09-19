@@ -63,6 +63,8 @@ function changecp20(flag, hasCp, subTotal){
   }
 }
 
+
+
 function Cart() {
   function listItem(items){
     return(
@@ -80,7 +82,7 @@ function Cart() {
   const address = "2931 Emerson Way Altadena, CA 91001";
   const deliverTime = "Wednesday Aug 20, 2020 between 6:00 pm to 8:00 pm";
   const history = useHistory();
-  const goToShop = () => history.push("/");
+  const goToShop = () => history.push("/products");
   const products = itemsCart();
 
   //part 2: scrolling coupon
@@ -91,6 +93,7 @@ function Cart() {
   const [cp10, setCoupon10] = useState(false);
   const [cp15, setCoupon15] = useState(false);
   const [cp20, setCoupon20] = useState(false);
+  // const [hasHistory, setHistory] = useState(false);
   var shipFee =1.5;
   shipFee = (Math.floor(shipFee * 100) / 100).toFixed(2);
   var subprice= subPrice(products);
@@ -111,6 +114,7 @@ function Cart() {
   var promo = (Math.floor((couponValue * subprice) * 100) / 100).toFixed(2);
   var taxValue= (Math.floor((tax * subprice) * 100) / 100).toFixed(2);
   var finalPrice= (Math.floor(((couponValue * subprice) + (tax * subprice) + parseInt(shipFee) + subprice) * 100) / 100).toFixed(2);
+  // var userEmail= "johnhay@gmail.com";
 
   function clickCoupon10(){
     console.log("Coupon 10 is clicked");
@@ -145,11 +149,6 @@ function Cart() {
   return (
     <div>
       <header className="stickyCart"><HeaderCart/></header>
-      {/* <div className="threeBottonOrders">
-        <button className="checkoutAndRefundBtn">Checkout</button>
-        <button className="HistoryButton">History</button>
-        <button className="checkoutAndRefundBtn">Refund</button>
-      </div> */}
 
       <div className="firstBlockDiv">
         <div className="contentLeft">Delivery Address:</div>
@@ -221,6 +220,7 @@ function Cart() {
         <div className="priceRight">${finalPrice}</div>
       </div>
 
+      <div className="justMakeSpace1"><button className="PayBtn">Checkout with Stripe</button></div>
       <div className="justMakeSpace"><button className="PayBtn">Checkout with PayPal</button></div>
       <Footer />
     </div>
