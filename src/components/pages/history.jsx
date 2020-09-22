@@ -11,8 +11,8 @@ function createHistoryCard(props){
         <HistoryCard
             shipping_address = {props.delivery_address}
             purchaseID = {props.purchase_uid}
-            key = {props.payment_uid}
-            id= {props.payment_uid}
+            key = {props.purchase_uid}
+            id= {props.purchase_uid}
             date = {props.purchase_date}
             price = {props.amount_paid}
             products = {holdItem}
@@ -22,8 +22,9 @@ function createHistoryCard(props){
 }
 
 function History(){
-    var userEmail="tazi.arthur@hotmail.com";
-    var url = "https://tsx3rnuidi.execute-api.us-west-1.amazonaws.com/dev/api/v2/history/" + userEmail;
+    // var userEmail="tazi.arthur@hotmail.com";
+    var anotherEmail="gloria.koehl@gmail.com";
+    var url = "https://tsx3rnuidi.execute-api.us-west-1.amazonaws.com/dev/api/v2/history/" + anotherEmail;
     const [historyData, SetfetchData] = useState([]);
     const [hasHistoryError, setHasHistoryError] = useState(false);
     const [isHistoryLoading, setIsHistoryLoading] = useState(true);

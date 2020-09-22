@@ -708,3 +708,7 @@ dd dl .term {
   margin-top: 40px;
   margin-bottom: 40px;
 }
+
+.makeSpacebetweenItem{
+  margin-bottom: 70px;
+}
