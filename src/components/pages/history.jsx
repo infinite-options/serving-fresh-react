@@ -6,7 +6,7 @@ import HistoryCard from "./HistoryCard";
 
 function createHistoryCard(props){
     var holdItem = JSON.parse(props.items);
-    console.log(holdItem);
+    // console.log(holdItem);
     return(
         <HistoryCard
             shipping_address = {props.delivery_address}
@@ -61,7 +61,6 @@ function History(){
             <div>
                 <header className="stickyCart"><HeaderCart/></header>
                 <div className="makeTopHistory">{historyData.map(createHistoryCard)}</div>
-        
                 <Footer />
             </div>);
       }

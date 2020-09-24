@@ -2,7 +2,7 @@ import React from "react";
 
 function HistoryItem(props){
     return(
-        <div>
+        <div key={props.id}>
             <div className="eachBlockDiv3 makeSpacebetweenItem">
                 <hr></hr>
                 <div className="contentLeft1 fixLocationOldItem">{props.itemName}</div>

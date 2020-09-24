@@ -10,6 +10,7 @@ function HeaderCart() {
   const history = useHistory();
   const goCheckout = () => history.push("/cart");
   const goHistory = () => history.push("/history");
+  const goRefund = () => history.push("/refund");
   return (<div>
     {/* <img className="userIconHeader"  src="../footer_icon/person (2).png" alt="user-icon"/> */}
     <h2 className="h2HeaderCart">Orders</h2>
@@ -27,7 +28,7 @@ function HeaderCart() {
     <div className="threeBottonOrders">
         <button className="checkoutAndRefundBtn" onClick={goCheckout}>Checkout</button>
         <button className="HistoryButton" onClick={goHistory}>History</button>
-        <button className="checkoutAndRefundBtn">Refund</button>
+        <button className="checkoutAndRefundBtn" onClick={goRefund}>Refund</button>
     </div>   
    </div> );
 }

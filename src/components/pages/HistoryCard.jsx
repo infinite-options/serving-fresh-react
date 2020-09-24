@@ -6,14 +6,15 @@ function createProductCardHis(props){
         quantity= {props.qty}
         itemName = {props.name}
         itemPrice = {props.price}
-        id ={props.id}
+        id = {props.id}
         key = {props.id}
     />);
 }
 
 function HistoryCard(props){
     var oldItems=props.products;
-    return(<div>
+    return(
+    <div key={props.id}>
         <div className="firstBlockDivHistory">
             <div className="contentLeftHistory">
                 <i className="fas fa-check-circle lightGreentick"></i> Order Completed
@@ -42,7 +43,6 @@ function HistoryCard(props){
 
     </div>);
 }
-
 
 
 

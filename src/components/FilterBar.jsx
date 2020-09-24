@@ -4,7 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import FilterButtons from './FilterButtons';
 import Box from '@material-ui/core/Box';
-import { width } from '@material-ui/system';
+// import { width } from '@material-ui/system';
 
 
 
