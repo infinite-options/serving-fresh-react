@@ -1,22 +1,9 @@
 import React, {useContext, useState, useEffect} from "react";
 import Entry from "./Entry";
-// import products from "../../products";
 import Footer from "../Footer";
 import Header from "../Header";
 import someContexts from "../makeContext";
 
-// function createProduct(products) {
-//   return (
-//     <Entry
-//       name={products.name}
-//       price={products.price}
-//       img={products.img}
-//       meaning={products.meaning}
-//       id={products.id}
-//       key={products.id}
-//     />
-//   );
-// }
 function createProduct2(products) {
   var tryItem = products.item_name.slice(products.item_name.indexOf("("),products.item_name.indexOf("(")+11);
   var itemName = products.item_name.slice(0,products.item_name.indexOf("("));
@@ -27,6 +14,7 @@ function createProduct2(products) {
       price={products.item_price}
       img={products.item_photo}
       meaning={tryItem}
+      business_uid= {products.itm_business_uid}
       id={products.item_uid}
       key={products.item_uid}
     />

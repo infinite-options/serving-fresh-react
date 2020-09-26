@@ -746,3 +746,13 @@ dd dl .term {
   background-color: white;
   outline: none;
 }
+
+
+
+/*css for stripe card*/
+.stripeLayout{
+  max-width: 40%;
+  margin: 150px auto;
+  height: 250px;
+  background: #ffefa0;
+}

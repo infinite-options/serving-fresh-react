@@ -9,6 +9,7 @@ import Signup from "./Signup";
 import Login from './Login';
 import History from "./pages/history";
 import Refund from "./pages/Refund";
+import PayStripe from "./pages/stripe";
 
 // Nav here will take all the adress from children page to this and give
 // it to the switch route
@@ -21,6 +22,7 @@ function Nav() {
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/products" component={DisplayProducts} />
         <Route path="/cart" component={Cart} />
+        <Route path="/stripe" component={PayStripe} />
         <Route path="/history" component={History} />
         <Route path="/refund" component={Refund} />
         <Route exact path="/farms" component={FarmGrid} />
