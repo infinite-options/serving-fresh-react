@@ -17,7 +17,7 @@ footer {
 header {
   background-color: #136d74;
   margin: auto -16px;
-  padding: 50px 32px 90px;
+  padding: 50px 32px 60px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   font-size: 40px;
   color: white;
@@ -373,19 +373,14 @@ dd dl .term {
   left: 26%;
   top: 220px;
 }
-.positioningSsort2{
-  position: relative;
-  left: 80px;
-}
 
 .sort3{
   position: absolute;
   top: 220px;
   right: 30%;
 }
-.positioningSsort3{
-  position: relative;
-  left: 25px;
+.positioningSsort{
+  margin: 0 auto;
 }
 .sort4{
   position: absolute;
@@ -395,7 +390,7 @@ dd dl .term {
 
 .iconBlock{
   display: block;
-  height: 120px;
+  height: 90px;
 }
 
 

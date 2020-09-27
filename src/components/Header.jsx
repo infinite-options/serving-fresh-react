@@ -44,25 +44,25 @@ function Header(props) {
     <hr className="blackHrHeaderSHop"></hr>
     <div>
       <div className={fruitClick ? "link4Button sort1" : "link4Button sort1 colorClick"} onClick={fruitClicking}>
-        <img className= "iconBlock" src= "./footer_icon/Asset 7.png" alt="fruit-img"></img>
+        <img className= "iconBlock positioningSsort" src={fruitClick? "./footer_icon/Asset 7.png": "./footer_icon/orangeFruit.png" }alt="fruit-img"></img>
         {/* <i className="fas fa-apple-alt fa-3x iconBlock" ></i> */}
         <span>fruits</span>
       </div>
 
       <div className={vegeClick ? "link4Button sort2" : "link4Button sort2 colorClick"} onClick={vegeClicking}>
-        <img className= "iconBlock positioningSsort2" src= "./footer_icon/Asset 4.png" alt="vegetable-img"></img>
+        <img className= "iconBlock positioningSsort" src= {vegeClick? "./footer_icon/Asset 4.png": "./footer_icon/orangeVegetable.png" } alt="vegetable-img"></img>
         {/* <i className="fas fa-carrot fa-3x iconBlock"></i> */}
         <span>Vegetables</span>
       </div>
 
       <div className={dessertClick ? "link4Button sort3" : "link4Button sort3 colorClick"} onClick={dessertClicking}>
-        <img className= "iconBlock positioningSsort3" src= "./footer_icon/Asset 6.png" alt="desert-img"></img>
+        <img className= "iconBlock positioningSsort" src= {dessertClick? "./footer_icon/Asset 6.png": "./footer_icon/orangeDessert.png" }  alt="desert-img"></img>
         {/* <i className="fas fa-ice-cream fa-3x iconBlock"></i> */}
         <span>Desserts</span>
       </div>
 
       <div className={othersClick ? "link4Button sort4" : "link4Button sort4 colorClick"} onClick={othersClicking}>
-        <img className= "iconBlock" src= "./footer_icon/Asset 5.png" alt="bread-img"></img>
+        <img className= "iconBlock positioningSsort" src= {othersClick? "./footer_icon/Asset 5.png": "./footer_icon/orangeOthers.png" } alt="bread-img"></img>
         {/* <i className="fas fa-bread-slice fa-3x iconBlock"></i> */}
         <span>Others</span>
       </div>
