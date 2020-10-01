@@ -1,4 +1,4 @@
-import React, {useState,useContext} from "react";
+import React, {useState,useContext, useEffect} from "react";
 import { Link } from "react-router-dom";
 import Footer from "../Footer";
 import HeaderCart from "../HeaderCart";
@@ -6,7 +6,7 @@ import CartItem from "./cartItem";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import someContexts from "../makeContext";
-// use history will help to redirect the path
+import CouponCard from "./CouponCard";
 
 //imtemsCart() will return an array of all localStorage key that include only products
 //and already been parse by JSON
@@ -96,6 +96,19 @@ function Cart() {
     );
   }
 
+  function listCoupon(coupon){
+    return(
+      <CouponCard 
+        notes = {coupon.notes}
+        discount_percent = {coupon.discount_percent}
+        discount_amount = {coupon.discount_amount}
+        discount_shipping = {coupon.discount_shipping}
+        id = {coupon.coupon_uid}
+        key = {coupon.coupon_uid}
+      />
+    );
+  }
+
   const address = "2931 Emerson Way Altadena, CA 91001";
   const deliverTime = "Wednesday Aug 20, 2020 between 6:00 pm to 8:00 pm";
   const history = useHistory();
@@ -103,6 +116,7 @@ function Cart() {
   // const goToPayStripe = () => history.push("/stripe");
   const products = itemsCart();
   const endpoint_API= "https://tsx3rnuidi.execute-api.us-west-1.amazonaws.com/dev/api/v2/purchase_Data_SF";
+  const endpoint_Coupon = "https://tsx3rnuidi.execute-api.us-west-1.amazonaws.com/dev/api/v2/available_Coupons/xyz@gmail.com";
   const cartContext = useContext(someContexts);
 
   //here is function after click pay with stripe
@@ -302,88 +316,299 @@ function Cart() {
     }
   }
 
-  console.log("coupon10 status: ",cp10);
-  console.log("coupon15 status: ",cp15);
-  console.log("coupon20 status: ",cp20);
-  return (
-    <div>
-      <header className="stickyCart"><HeaderCart/></header>
+  // console.log("coupon10 status: ",cp10);
+  // console.log("coupon15 status: ",cp15);
+  // console.log("coupon20 status: ",cp20);
 
-      <div className="firstBlockDiv">
-        <div className="contentLeft">Delivery Address:</div>
-        <div className="contentRight">{address}</div>
+  const [couponLoaded, setCouponStatus] = useState(false);
+  const [couponError, setErrorStatus] = useState(false);
+  const [couponData, setCouponData] = useState([]);
+
+  useEffect(() => {
+    axios.get(endpoint_Coupon).then(response =>{
+      var itemPack = response.data.result;
+      var validCoupons =[];
+      for(var i=0;i<itemPack.length;i++){
+        if(itemPack[i].valid ==="TRUE"){
+          validCoupons.push(itemPack[i]);
+        }
+      }
+      console.log(validCoupons);
+      setCouponStatus(true);
+      setCouponData(validCoupons);
+    }).catch(error =>{
+      console.log(error);
+      setErrorStatus(true);
+    })
+  }, [endpoint_Coupon])
+
+  if(couponLoaded && !couponError){
+    return (
+      <div>
+        <header className="stickyCart"><HeaderCart/></header>
+  
+        <div className="firstBlockDiv">
+          <div className="contentLeft">Delivery Address:</div>
+          <div className="contentRight">{address}</div>
+        </div>
+        
+        <div className="eachBlockDiv">
+          <Link to="/cart" className="colorClick contentRight">Change address</Link>
+        </div>
+  
+        <hr></hr>
+  
+        <div className="eachBlockDiv2">
+          <div className="contentLeft">Expected Delivery:</div>
+          <div className="contentRight">{deliverTime}</div>
+        </div>
+  
+        <hr></hr>
+  
+        <div className="eachBlockDiv3">
+          <div className="contentLeft"><b>Your order</b></div>
+          <div className="contentRight"><button className="addMoreBtn" onClick={goToShop}>+ Add items</button></div>
+        </div>
+  
+        <hr></hr>
+  
+        <div className="">{products.map(listItem)}</div>
+  
+        {/* codes for scrolling coupon bar */}
+        {/* <div className="lineAboveCoupon">Choose one of the eligible promos to apply</div>
+        <div className="scrolling-wrapper">
+          <img className="card" onClick={clickCoupon10} src={coupon10} alt="coupon10%-img"></img>
+          <img className="card" onClick={clickCoupon15} src={coupon15} alt="coupon15%-img"></img>
+          <img className="card" onClick={clickCoupon20} src={coupon20} alt="coupon20%-img"></img>
+        </div>
+        <hr></hr> */}
+        <div className="lineAboveCoupon">Choose one of the eligible promos to apply</div>
+        <div className="scrolling-wrapper">
+          {couponData.map(listCoupon)}
+          {/* <img className="card" onClick={clickCoupon10} src={coupon10} alt="coupon10%-img"></img>
+          <img className="card" onClick={clickCoupon15} src={coupon15} alt="coupon15%-img"></img>
+          <img className="card" onClick={clickCoupon20} src={coupon20} alt="coupon20%-img"></img> */}
+        </div>
+  
+        <hr></hr>
+  
+        <div className="eachBlockDiv3">
+          <div className="contentLeft1">Subtotal</div>
+          <div className="priceRight">${subpriceString}</div>
+        </div>
+  
+        <hr></hr>
+  
+        <div className="eachBlockDiv3 colorPromo">
+          <div className="contentLeft1">Promo applied</div>
+          <div className="priceRight">-${promo}</div>
+        </div>
+  
+        <hr></hr>
+  
+        <div className="eachBlockDiv3">
+          <div className="contentLeft1">Delivery Fee</div>
+          <div className="priceRight">${shipFee}</div>
+        </div>
+  
+        <hr></hr>
+  
+        <div className="eachBlockDiv3">
+          <div className="contentLeft1">Taxes</div>
+          <div className="priceRight">${taxValue}</div>
+        </div>
+  
+        <hr></hr>
+  
+        <div className="eachBlockDiv3">
+          <div className="contentLeft1"><b>Total</b></div>
+          <div className="priceRight">${finalPrice}</div>
+        </div>
+  
+        <div className="justMakeSpace1" onClick={stripePay}><button className="PayBtn">Checkout with Stripe</button></div>
+        <div className="justMakeSpace" onClick={paypalPay}><button className="PayBtn">Checkout with PayPal</button></div>
+        <Footer />
       </div>
+    );
+  }else{
+    return (
+      <div>
+        <header className="stickyCart"><HeaderCart/></header>
+  
+        <div className="firstBlockDiv">
+          <div className="contentLeft">Delivery Address:</div>
+          <div className="contentRight">{address}</div>
+        </div>
+        
+        <div className="eachBlockDiv">
+          <Link to="/cart" className="colorClick contentRight">Change address</Link>
+        </div>
+  
+        <hr></hr>
+  
+        <div className="eachBlockDiv2">
+          <div className="contentLeft">Expected Delivery:</div>
+          <div className="contentRight">{deliverTime}</div>
+        </div>
+  
+        <hr></hr>
+  
+        <div className="eachBlockDiv3">
+          <div className="contentLeft"><b>Your order</b></div>
+          <div className="contentRight"><button className="addMoreBtn" onClick={goToShop}>+ Add items</button></div>
+        </div>
+  
+        <hr></hr>
+  
+        <div className="">{products.map(listItem)}</div>
+  
+        {/* codes for scrolling coupon bar */}
+        <div className="lineAboveCoupon">Choose one of the eligible promos to apply</div>
+        <div className="scrolling-wrapper">
+          {/* <img className="card" onClick={clickCoupon10} src={coupon10} alt="coupon10%-img"></img>
+          <img className="card" onClick={clickCoupon15} src={coupon15} alt="coupon15%-img"></img>
+          <img className="card" onClick={clickCoupon20} src={coupon20} alt="coupon20%-img"></img> */}
+          The Coupon server is loading and finging your available_Coupons
+        </div>
+        {/* <hr></hr>
+        <div className="lineAboveCoupon">Choose one of the eligible promos to apply</div>
+        <div className="scrolling-wrapper">
+          <img className="card" onClick={clickCoupon10} src={coupon10} alt="coupon10%-img"></img>
+          <img className="card" onClick={clickCoupon15} src={coupon15} alt="coupon15%-img"></img>
+          <img className="card" onClick={clickCoupon20} src={coupon20} alt="coupon20%-img"></img>
+        </div> */}
+  
+        <hr></hr>
+  
+        <div className="eachBlockDiv3">
+          <div className="contentLeft1">Subtotal</div>
+          <div className="priceRight">${subpriceString}</div>
+        </div>
+  
+        <hr></hr>
+  
+        <div className="eachBlockDiv3 colorPromo">
+          <div className="contentLeft1">Promo applied</div>
+          <div className="priceRight">-${promo}</div>
+        </div>
+  
+        <hr></hr>
+  
+        <div className="eachBlockDiv3">
+          <div className="contentLeft1">Delivery Fee</div>
+          <div className="priceRight">${shipFee}</div>
+        </div>
+  
+        <hr></hr>
+  
+        <div className="eachBlockDiv3">
+          <div className="contentLeft1">Taxes</div>
+          <div className="priceRight">${taxValue}</div>
+        </div>
+  
+        <hr></hr>
+  
+        <div className="eachBlockDiv3">
+          <div className="contentLeft1"><b>Total</b></div>
+          <div className="priceRight">${finalPrice}</div>
+        </div>
+  
+        <div className="justMakeSpace1" onClick={stripePay}><button className="PayBtn">Checkout with Stripe</button></div>
+        <div className="justMakeSpace" onClick={paypalPay}><button className="PayBtn">Checkout with PayPal</button></div>
+        <Footer />
+      </div>
+    );
+  }
+
+
+  // return (
+  //   <div>
+  //     <header className="stickyCart"><HeaderCart/></header>
+
+  //     <div className="firstBlockDiv">
+  //       <div className="contentLeft">Delivery Address:</div>
+  //       <div className="contentRight">{address}</div>
+  //     </div>
       
-      <div className="eachBlockDiv">
-        <Link to="/cart" className="colorClick contentRight">Change address</Link>
-      </div>
+  //     <div className="eachBlockDiv">
+  //       <Link to="/cart" className="colorClick contentRight">Change address</Link>
+  //     </div>
 
-      <hr></hr>
+  //     <hr></hr>
 
-      <div className="eachBlockDiv2">
-        <div className="contentLeft">Expected Delivery:</div>
-        <div className="contentRight">{deliverTime}</div>
-      </div>
+  //     <div className="eachBlockDiv2">
+  //       <div className="contentLeft">Expected Delivery:</div>
+  //       <div className="contentRight">{deliverTime}</div>
+  //     </div>
 
-      <hr></hr>
+  //     <hr></hr>
 
-      <div className="eachBlockDiv3">
-        <div className="contentLeft"><b>Your order</b></div>
-        <div className="contentRight"><button className="addMoreBtn" onClick={goToShop}>+ Add items</button></div>
-      </div>
+  //     <div className="eachBlockDiv3">
+  //       <div className="contentLeft"><b>Your order</b></div>
+  //       <div className="contentRight"><button className="addMoreBtn" onClick={goToShop}>+ Add items</button></div>
+  //     </div>
 
-      <hr></hr>
+  //     <hr></hr>
 
-      <div className="">{products.map(listItem)}</div>
+  //     <div className="">{products.map(listItem)}</div>
 
-      {/* codes for scrolling coupon bar */}
-      <div className="lineAboveCoupon">Choose one of the eligible promos to apply</div>
-      <div className="scrolling-wrapper">
-        <img className="card" onClick={clickCoupon10} src={coupon10} alt="coupon10%-img"></img>
-        <img className="card" onClick={clickCoupon15} src={coupon15} alt="coupon15%-img"></img>
-        <img className="card" onClick={clickCoupon20} src={coupon20} alt="coupon20%-img"></img>
-      </div>
+  //     {/* codes for scrolling coupon bar */}
+  //     <div className="lineAboveCoupon">Choose one of the eligible promos to apply</div>
+  //     <div className="scrolling-wrapper">
+  //       <img className="card" onClick={clickCoupon10} src={coupon10} alt="coupon10%-img"></img>
+  //       <img className="card" onClick={clickCoupon15} src={coupon15} alt="coupon15%-img"></img>
+  //       <img className="card" onClick={clickCoupon20} src={coupon20} alt="coupon20%-img"></img>
+  //     </div>
+  //     <hr></hr>
+  //     <div className="lineAboveCoupon">Choose one of the eligible promos to apply</div>
+  //     <div className="scrolling-wrapper">
+  //       {/* <img className="card" onClick={clickCoupon10} src={coupon10} alt="coupon10%-img"></img>
+  //       <img className="card" onClick={clickCoupon15} src={coupon15} alt="coupon15%-img"></img>
+  //       <img className="card" onClick={clickCoupon20} src={coupon20} alt="coupon20%-img"></img> */}
+  //     </div>
 
-      <hr></hr>
+  //     <hr></hr>
 
-      <div className="eachBlockDiv3">
-        <div className="contentLeft1">Subtotal</div>
-        <div className="priceRight">${subpriceString}</div>
-      </div>
+  //     <div className="eachBlockDiv3">
+  //       <div className="contentLeft1">Subtotal</div>
+  //       <div className="priceRight">${subpriceString}</div>
+  //     </div>
 
-      <hr></hr>
+  //     <hr></hr>
 
-      <div className="eachBlockDiv3 colorPromo">
-        <div className="contentLeft1">Promo applied</div>
-        <div className="priceRight">-${promo}</div>
-      </div>
+  //     <div className="eachBlockDiv3 colorPromo">
+  //       <div className="contentLeft1">Promo applied</div>
+  //       <div className="priceRight">-${promo}</div>
+  //     </div>
 
-      <hr></hr>
+  //     <hr></hr>
 
-      <div className="eachBlockDiv3">
-        <div className="contentLeft1">Delivery Fee</div>
-        <div className="priceRight">${shipFee}</div>
-      </div>
+  //     <div className="eachBlockDiv3">
+  //       <div className="contentLeft1">Delivery Fee</div>
+  //       <div className="priceRight">${shipFee}</div>
+  //     </div>
 
-      <hr></hr>
+  //     <hr></hr>
 
-      <div className="eachBlockDiv3">
-        <div className="contentLeft1">Taxes</div>
-        <div className="priceRight">${taxValue}</div>
-      </div>
+  //     <div className="eachBlockDiv3">
+  //       <div className="contentLeft1">Taxes</div>
+  //       <div className="priceRight">${taxValue}</div>
+  //     </div>
 
-      <hr></hr>
+  //     <hr></hr>
 
-      <div className="eachBlockDiv3">
-        <div className="contentLeft1"><b>Total</b></div>
-        <div className="priceRight">${finalPrice}</div>
-      </div>
+  //     <div className="eachBlockDiv3">
+  //       <div className="contentLeft1"><b>Total</b></div>
+  //       <div className="priceRight">${finalPrice}</div>
+  //     </div>
 
-      <div className="justMakeSpace1" onClick={stripePay}><button className="PayBtn">Checkout with Stripe</button></div>
-      <div className="justMakeSpace" onClick={paypalPay}><button className="PayBtn">Checkout with PayPal</button></div>
-      <Footer />
-    </div>
-  );
+  //     <div className="justMakeSpace1" onClick={stripePay}><button className="PayBtn">Checkout with Stripe</button></div>
+  //     <div className="justMakeSpace" onClick={paypalPay}><button className="PayBtn">Checkout with PayPal</button></div>
+  //     <Footer />
+  //   </div>
+  // );
+
+
 }
 
 export default Cart;

@@ -2,9 +2,10 @@ import React, { useContext, useState } from "react";
 import someContexts from "./makeContext";
 import { Link } from "react-router-dom";
 
-function Header(props) {
+function HeaderDays(props) {
   const cartContext = useContext(someContexts);
   var itemsAmount = cartContext.cartTotal;
+  // var fruitClass = "link sort1";
   const [fruitClick, set1]= useState(true);
   const [vegeClick, set2]= useState(true);
   const [dessertClick, set3]= useState(true);
@@ -29,10 +30,7 @@ function Header(props) {
 
 
   return(<div>
-    <div className="backArrow">
-      <Link className="link" to="/days"><i className="fas fa-chevron-left fa-lg"> Farms</i></Link>
-    </div>
-    <h2 className="h2Header">{props.farmName}</h2>
+    <h2 className="h2Header">{props.title}</h2>
     <Link className="link" to="/cart">
       <div id="ex4">
         <span className="p1 fa-stack fa-2x has-badge" data-count={itemsAmount}>
@@ -65,4 +63,4 @@ function Header(props) {
    </div> );
 }
 
-export default Header;
+export default HeaderDays;
