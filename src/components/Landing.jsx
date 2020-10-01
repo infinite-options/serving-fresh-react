@@ -71,6 +71,15 @@ class Landing extends Component {
         })
         .then((res) => {
             console.log(res);
+            let customerInfo = res.data.result[0];
+            console.log(customerInfo);
+            console.log('cookie',document.cookie)
+            document.cookie = 'customer_uid=' + customerInfo.customer_uid;
+            document.cookie = 'customer_last_name=' + customerInfo.customer_last_name;
+            document.cookie = 'customer_first_name=' + customerInfo.customer_first_name;
+            document.cookie = 'customer_email=' + customerInfo.customer_email;
+            document.cookie = 'customer_social_media=' + customerInfo.user_social_media;
+            console.log('cookie',document.cookie)
         })
         .catch((err) => {
             if(err.response) {
