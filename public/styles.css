@@ -48,7 +48,7 @@ h1 span {
   margin-bottom: 200px;
 }
 
-.dictionary > .term {
+.dictionary>.term {
   text-align: center;
   max-width: 26rem;
   max-height: 40rem;
@@ -132,8 +132,8 @@ dd dl .term {
 /* increase and decrease button with the amount as integer */
 .numberOfItems {
   width: 100%;
-  position: relative; 
-   bottom: 190px;
+  position: relative;
+  bottom: 190px;
 }
 
 .increBtn {
@@ -161,7 +161,8 @@ dd dl .term {
   width: 8%;
   font-size: 25px;
 }
-.amountOnItem{
+
+.amountOnItem {
   background-color: white;
   position: relative;
   bottom: 360px;
@@ -195,12 +196,12 @@ dd dl .term {
 }
 
 /*Footer Icon*/
-.homeFooter{
+.homeFooter {
   position: absolute;
   left: 40px;
 }
 
-.infoFooter{
+.infoFooter {
   position: absolute;
   right: 40px;
 }
@@ -225,6 +226,7 @@ dd dl .term {
   background: white;
   border-style: solid;
 }
+
 .fa-circle {
   color: #2ec2b0;
 }
@@ -235,18 +237,18 @@ dd dl .term {
 }
 
 /*header of cart and shop*/
-.shopAndFarmHeader{
+.shopAndFarmHeader {
   display: inline-block;
 }
 
-.h2HeaderCart{
+.h2HeaderCart {
   display: inline-block;
   font-size: 70px;
   position: relative;
   bottom: -10px;
 }
 
-.h2Header{
+.h2Header {
   display: inline-block;
   font-size: 70px;
   position: relative;
@@ -261,43 +263,43 @@ dd dl .term {
   padding-left: 18px;
 }
 
-.blackHrHeaderSHop{
+.blackHrHeaderSHop {
   position: relative;
-    bottom: 120px;
-    /* color: black; */
-    border-color: black;
+  bottom: 120px;
+  /* color: black; */
+  border-color: black;
 }
 
-#ex4{
+#ex4 {
   display: inline-block;
   position: absolute;
   right: 40px;
   top: 35px;
 }
 
-#ex4 .p1[data-count]:after{
-  position:absolute;
-  right:10%;
-  top:8%;
+#ex4 .p1[data-count]:after {
+  position: absolute;
+  right: 10%;
+  top: 8%;
   content: attr(data-count);
-  font-size:40%;
-  padding:.2em;
-  border-radius:50%;
-  line-height:1em;
+  font-size: 40%;
+  padding: .2em;
+  border-radius: 50%;
+  line-height: 1em;
   color: red;
-  background:white;
-  text-align:center;
+  background: white;
+  text-align: center;
   min-width: 1em;
   z-index: 10;
 }
 
-.backArrow{
+.backArrow {
   position: absolute;
   top: 100px;
   left: 50px;
 }
 
-.stickyFooter{
+.stickyFooter {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -307,13 +309,13 @@ dd dl .term {
 }
 
 /*all css for cart page*/
-.backArrowCart{
+.backArrowCart {
   position: absolute;
   top: 100px;
   left: 50px;
 }
 
-.userIconHeader{
+.userIconHeader {
   position: absolute;
   left: 50px;
   bottom: 160px;
@@ -329,7 +331,7 @@ dd dl .term {
   height: 180px;
 }
 
-.stickyFooterCart{
+.stickyFooterCart {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -349,7 +351,7 @@ dd dl .term {
   text-decoration: none;
 }
 
-.linkFooter{
+.linkFooter {
   color: #afafaf;
   text-decoration: none;
 }
@@ -358,63 +360,66 @@ dd dl .term {
    color: #FF8500
 } */
 
-.colorClick{
+.colorClick {
   color: #FF8500
 }
 
 /*css for searching in shopping cart*/
-.sort1{
+.sort1 {
   position: absolute;
   top: 220px;
   left: 7%
 }
-.sort2{
+
+.sort2 {
   position: absolute;
   left: 26%;
   top: 220px;
 }
 
-.sort3{
+.sort3 {
   position: absolute;
   top: 220px;
   right: 30%;
 }
-.positioningSsort{
+
+.positioningSsort {
   margin: 0 auto;
 }
-.sort4{
+
+.sort4 {
   position: absolute;
   right: 7%;
   top: 220px;
 }
 
-.iconBlock{
+.iconBlock {
   display: block;
   height: 90px;
 }
 
 
-.cartPageBody{
+.cartPageBody {
   margin-top: 220px;
   font-size: 30px;
   text-align: center;
 }
 
-.colorGreen{
+.colorGreen {
   color: #136d74;
   display: inline-block;
   position: absolute;
   left: 3%;
 }
 
-.colorGreenDelivery{
+.colorGreenDelivery {
   color: #136d74;
   display: inline-block;
   position: relative;
   right: 190px;
 }
 
-.h3InfoText{
+.h3InfoText {
   display: inline-block;
   width: 500px;
   position: relative;
@@ -422,43 +427,43 @@ dd dl .term {
   text-align: left;
 }
 
-.hrsection{
+.hrsection {
   margin: 40px auto;
 }
 
 /*css for 4 buttons footer*/
-.homeIcon{
+.homeIcon {
   position: absolute;
   left: 5%;
   bottom: 10px;
 }
 
-.orderIcon{
+.orderIcon {
   position: absolute;
   left: 30%;
   bottom: 10px;
 }
 
-.infoIcon{
+.infoIcon {
   position: absolute;
   right: 34%;
   bottom: 10px;
 }
 
-.userIcon{
+.userIcon {
   position: absolute;
   right: 7%;
   bottom: 10px;
 }
 
 /*Here is the section for all the css of checkout page page*/
-.threeBottonOrders{
+.threeBottonOrders {
   position: relative;
   right: 16px;
   bottom: 51px;
 }
 
-.checkoutAndRefundBtn{
+.checkoutAndRefundBtn {
   width: 33%;
   height: 100px;
   font-size: 40px;
@@ -467,7 +472,7 @@ dd dl .term {
   outline: none;
 }
 
-.HistoryButton{
+.HistoryButton {
   width: 34%;
   height: 100px;
   font-size: 40px;
@@ -476,7 +481,7 @@ dd dl .term {
   outline: none;
 }
 
-.contentLeft{
+.contentLeft {
   width: 50%;
   float: left;
   font-size: 38px;
@@ -485,37 +490,37 @@ dd dl .term {
   color: #136d74;
 }
 
-.contentRight{
+.contentRight {
   width: 50%;
   float: right;
   font-size: 35px;
 }
 
-.eachBlockDiv{
+.eachBlockDiv {
   margin-top: 40px;
   width: 100%;
   height: 130px;
 }
 
-.firstBlockDiv{
+.firstBlockDiv {
   margin-top: 330px;
   width: 100%;
   height: 130px;
 }
 
-.eachBlockDiv2{
+.eachBlockDiv2 {
   margin-top: 40px;
   width: 100%;
   height: 220px;
 }
 
-.eachBlockDiv3{
+.eachBlockDiv3 {
   margin-top: 40px;
   width: 100%;
   height: 80px;
 }
 
-.addMoreBtn{
+.addMoreBtn {
   background-color: #ff5f40;
   font-size: 35px;
   float: right;
@@ -527,27 +532,27 @@ dd dl .term {
 }
 
 /*css for cartItem component*/
-.priceRight{
+.priceRight {
   font-size: 35px;
   float: right;
   position: relative;
   right: 30px;
 }
 
-.counterItemCart{
+.counterItemCart {
   display: inline-block;
   width: 80px;
   text-align: center;
   color: #FF8500
 }
 
-.contentRight1{
+.contentRight1 {
   width: 40%;
   float: right;
   font-size: 35px;
 }
 
-.contentLeft1{
+.contentLeft1 {
   width: 53%;
   float: left;
   font-size: 35px;
@@ -568,7 +573,7 @@ dd dl .term {
   margin: auto 50px;
 }
 
-.lineAboveCoupon{
+.lineAboveCoupon {
   font-size: 30px;
   margin: 30px auto 20px;
   position: relative;
@@ -576,17 +581,17 @@ dd dl .term {
   display: inline-block;
 }
 
-.justMakeSpace{
+.justMakeSpace {
   margin-bottom: 300px;
   margin-top: 20px;
 }
 
-.justMakeSpace1{
+.justMakeSpace1 {
   /* margin-bottom: 300px; */
   margin-top: 100px;
 }
 
-.PayBtn{
+.PayBtn {
   font-size: 35px;
   width: 90%;
   position: relative;
@@ -597,20 +602,20 @@ dd dl .term {
   outline: none;
 }
 
-.colorPromo{
+.colorPromo {
   color: #136d74;
 }
 
 /*History page css*/
-.historyDiv{
+.historyDiv {
   margin-top: 330px;
 }
 
-.lightGreentick{
+.lightGreentick {
   color: #28df99;
 }
 
-.RateBtn{
+.RateBtn {
   background-color: #e4e4e4;
   font-size: 30px;
   float: right;
@@ -623,7 +628,7 @@ dd dl .term {
   width: 230px;
 }
 
-.ViewBtn{
+.ViewBtn {
   background-color: #e4e4e4;
   font-size: 30px;
   color: #136d74;
@@ -636,7 +641,7 @@ dd dl .term {
   left: 15%;
 }
 
-.HelpBtn{
+.HelpBtn {
   background-color: #e4e4e4;
   font-size: 30px;
   color: #136d74;
@@ -649,12 +654,12 @@ dd dl .term {
   left: 21%;
 }
 
-.div2btn{
+.div2btn {
   position: relative;
   top: 50px;
 }
 
-.contentLeftHistory{
+.contentLeftHistory {
   width: 50%;
   float: left;
   font-size: 35px;
@@ -663,62 +668,62 @@ dd dl .term {
   color: #136d74;
 }
 
-.dateBought{
+.dateBought {
   color: black;
   position: relative;
   top: 25px;
   font-size: 30px;
 }
 
-.firstBlockDivHistory{
+.firstBlockDivHistory {
   margin-bottom: 70px;
   width: 100%;
   height: 130px;
 }
 
-.makeTopHistory{
+.makeTopHistory {
   margin-top: 330px;
   margin-bottom: 240px;
 }
 
-.fixLocationOldItem{
+.fixLocationOldItem {
   position: relative;
   top: 20px;
 }
 
-.quantityHistory{
+.quantityHistory {
   display: inline-block;
   width: 80px;
   text-align: center;
   color: #afafaf
 }
 
-.lastHr{
+.lastHr {
   margin-bottom: 60px;
   margin-top: 120px;
   border-top: 10px solid #dadada;
 }
 
-.totalHr{
+.totalHr {
   margin-top: 40px;
   margin-bottom: 40px;
 }
 
-.makeSpacebetweenItem{
+.makeSpacebetweenItem {
   margin-bottom: 70px;
 }
 
 /*css for Refund page*/
-.groundImageRefund{
+.groundImageRefund {
   width: 100%;
 }
 
-.makeTopRefund{
+.makeTopRefund {
   margin-top: 280px;
   margin-bottom: 240px;
 }
 
-.takePhoto{
+.takePhoto {
   display: block;
   width: 90%;
   font-size: 35px;
@@ -730,7 +735,7 @@ dd dl .term {
   outline: none;
 }
 
-.getPicBtn{
+.getPicBtn {
   display: block;
   width: 90%;
   font-size: 35px;
@@ -745,7 +750,7 @@ dd dl .term {
 
 
 /*css for stripe card*/
-.stripeLayout{
+.stripeLayout {
   max-width: 40%;
   margin: 150px auto;
   height: 250px;
@@ -754,11 +759,11 @@ dd dl .term {
 
 
 /*css for days page*/
-.dateCardcss{
+.dateCardcss {
   width: 450px;
 }
 
-.weekDayDiv{
+.weekDayDiv {
   font-size: 50px;
   background-color: #136d74;
   color: white;
@@ -767,10 +772,10 @@ dd dl .term {
   padding-top: 35px;
 }
 
-.dateDiv{
+.dateDiv {
   font-size: 50px;
   color: #FF8500;
-  background-color: #cecece;
+  background-color: #eaeaea;
   height: 170px;
   padding-top: 90px;
 }
