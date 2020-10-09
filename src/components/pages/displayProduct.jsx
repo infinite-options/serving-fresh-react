@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from "react";
+import React, {useContext} from "react";
 import Entry from "./Entry";
 import Footer from "../Footer";
 import Header from "../Header";
@@ -50,44 +50,13 @@ function sorting(prodChoice,copyFarm){
   return [...fruitItems, ...vegeItems, ...dessertItems, ...otherItems];
 }
 
-
-
 function DisplayProduct() {
-  var url ="https://tsx3rnuidi.execute-api.us-west-1.amazonaws.com/dev/api/v2/itemsByBusiness/200-000003";
-  const[data,SetfetchData]= useState([]);
-  const [hasError, setHasError] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const prodChoice =useContext(someContexts);
-  
-  useEffect(() =>{
-    let flag = false;
-    const fetchData = async () =>{
-      try{
-        const response = await fetch(url);
-        const responseData = await response.json();
-        console.log("Got the Data");
-        if(!flag){
-          // console.log(responseData.result.result);
-          SetfetchData(responseData.result.result);
-        }
-      }catch(err){
-        setHasError(true);
-      } finally{
-        console.log("finish loading");
-        setIsLoading(false);
-      }
-    }
-    fetchData();
-
-    return() =>{
-      flag= true;
-    };
-  }, [url]);
   
   //because at the start of the fetching, it has nothing and that will cause error 
   //with this if condition, we only work if we get the data 
-  if(!isLoading && !hasError){
-    var holdItem = data;
+  if(!prodChoice.itemIsLoading && !prodChoice.itemError){
+    var holdItem = prodChoice.itemsFromFetchTodDisplay;
     var copyFarm = holdItem;
     const farmName= "Resendiz";
     copyFarm = sorting(prodChoice,copyFarm);
