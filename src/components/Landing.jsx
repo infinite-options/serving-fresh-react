@@ -3,6 +3,7 @@ import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import { withRouter } from "react-router";
 import { Link } from 'react-router-dom';
 import Background from '../welcome-bg.png'
 
@@ -21,19 +22,22 @@ const styles = {
 class Landing extends Component {
 
     componentDidMount() {
-        let queryString = this.props.location.search;
-        let urlParams = new URLSearchParams(queryString);
+        // Make sure Apple Login is allowed before initializing to prevent crashes
         if(process.env.REACT_APP_APPLE_CLIENT_ID && process.env.REACT_APP_APPLE_REDIRECT_URI){
             window.AppleID.auth.init({
                 clientId : process.env.REACT_APP_APPLE_CLIENT_ID,
                 scope : 'email',
                 redirectURI : process.env.REACT_APP_APPLE_REDIRECT_URI,
             });
-            if(urlParams.has('email') && urlParams.has('token')) {
-                // User just logged in with Apple, try to sign in SF with credentials
-                this._socialLoginAttempt(urlParams.get('email'),'accessToken',urlParams.get('token'),'GOOGLE');
-
-            }
+        }
+        let queryString = this.props.location.search;
+        let urlParams = new URLSearchParams(queryString);
+        // Clear Query parameters
+        window.history.pushState({}, document.title, window.location.pathname);
+        // Log which media platform user should have signed in with instead of Apple
+        // May eventually implement to display the message for which platform to Login
+        if(urlParams.has('media')) {
+            console.log(urlParams.get('media'));
         }
     }
 
@@ -67,10 +71,27 @@ class Landing extends Component {
         axios
         .post('https://tsx3rnuidi.execute-api.us-west-1.amazonaws.com/dev/api/v2/Login/',{
             email: email,
+            password: '',
             token: refreshToken,
+            signup_platform: platform,
         })
         .then((res) => {
             console.log(res);
+            if(!(res.data.code && res.data.code !== 200)) {
+                let customerInfo = res.data.result[0];
+                console.log(customerInfo);
+                console.log('cookie',document.cookie)
+                document.cookie = 'customer_uid=' + customerInfo.customer_uid;
+                console.log('cookie',document.cookie)
+                this.props.history.push("/farms");
+            } else if(res.data.code === 404) {
+                this.props.history.push("/socialsignup",{
+                    email: email, 
+                    accessToken: accessToken,
+                    refreshToken: refreshToken,
+                    platform: platform,    
+                });
+            }
         })
         .catch((err) => {
             if(err.response) {
@@ -151,4 +172,4 @@ class Landing extends Component {
     }
 }
 
-export default Landing;
+export default withRouter(Landing);

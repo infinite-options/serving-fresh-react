@@ -60,17 +60,36 @@ const FarmGrid = () => {
     const [filterFarms, setFilterFarms] = useState(null)
     const [loading, setLoading] = useState(false);
 
-    async function renderFarms() {
-        const response = await fetch("/");
-        setFarms(farmlist);
-        setFilterFarms(farmlist);
-        setLoading(true);
-        console.log("this is farms" + farms);
+    function checkAppleLogin() {
+        let queryString = window.location.search;
+        let urlParams = new URLSearchParams(queryString);
+        // Clear Query parameters
+        window.history.pushState({}, document.title, window.location.pathname);
+        // Set cookie from successful Apple Login
+        if(urlParams.has('id')) {
+            let customer_uid = urlParams.get('id');
+            console.log(customer_uid)
+            console.log('cookie',document.cookie)
+            document.cookie = 'customer_uid=' + customer_uid;
+            console.log('cookie',document.cookie)
+        }
     }
-    useEffect(() => {
-        renderFarms();
-    }, [])
 
+    useEffect(() => {
+        async function renderFarms() {
+            const response = await fetch("/");
+            console.log(response)
+            setFarms(farmlist);
+            setFilterFarms(farmlist);
+            setLoading(true);
+            console.log("this is farms" + farms);
+        }
+        renderFarms();
+    },[])
+
+    useEffect(() => {
+        checkAppleLogin();
+    },[])
 
     if (!loading) {
         return ("Loading...");
