@@ -22,6 +22,7 @@ class Signup extends Component {
       city: '',
       state: '',
       zip: '',
+      message: '',
     }
   }
 
@@ -82,11 +83,10 @@ class Signup extends Component {
                   }
                 })
                 .then((res) => {
-                  let customerInfo = res.data.result;
-                  console.log('cookie',document.cookie)
-                  document.cookie = 'customer_uid=' + customerInfo.customer_uid;
-                  console.log('cookie',document.cookie)
-                  this.props.history.push("/farms");
+                  // let customerInfo = res.data.result;
+                  this.setState({
+                    message: 'success',
+                  })
                 })
                 .catch((err) => {
                   console.log(err);
@@ -286,6 +286,11 @@ class Signup extends Component {
               <Button variant="contained" type="submit">Submit</Button>
               <Button variant="contained" style={{ marginLeft: '20px' }} type="button" onClick={this._onReset}>Reset</Button>
             </div>
+            {this.state.message === 'success' && (
+              <div>
+                Sign up successful. Please confirm sign up process by following link in your email.
+              </div>
+            )}
           </form>
         </Paper>
       </Box>
