@@ -6,11 +6,6 @@ const http = require('http')
 const https = require('https');
 const fs = require('fs');
 
-const options = {
-  key: fs.readFileSync('key.pem'),
-  cert: fs.readFileSync('cert.pem')
-}
-
 const app = express();
 
 const PORT = process.env.PORT || 80;

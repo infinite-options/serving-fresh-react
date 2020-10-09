@@ -1,97 +1,189 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import TextField from '@material-ui/core/TextField';
 import { Box } from '@material-ui/core'
 import Paper from '@material-ui/core/Paper';
 import Background from '../welcome-bg.png'
-import ReactTelephoneInput from 'react-telephone-input'
 import Button from '@material-ui/core/Button';
+import { withRouter } from "react-router";
+import axios from 'axios';
 
-export default class signup extends Component {
+class Signup extends Component {
   constructor(props) {
-    super(props)
-
+    super()
     this.state = {
-      account: '',
       email: '',
-      emailErrorText: '',
       password: '',
       confirmPassword: '',
-      confirmPasswordErrorText: '',
-      telNum: '',
+      firstName: '',
+      lastName: '',
+      phone: '',
+      address: '',
+      unit: '',
+      city: '',
+      state: '',
+      zip: '',
     }
   }
 
-  validateEmail(e) {
-    // regex from http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
-    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(e);
-  }
-
-  getStyle() {
-    return {
-      height: 600,
-      width: 350,
-      margin: 20,
-      textAlign: 'center',
-      display: 'inline-block',
-    }
-  }
-
-  _onSubmit(e) {
-    e.preventDefault()
-
-    console.log("_onSubmit")
-    if (this.state.emailErrorText == '' && this.state.confirmPasswordErrorText == '') {
-      console.log("_onSubmit: state=", this.state)
+  _onSubmit = (event) => {
+    event.preventDefault();
+    console.log('_onSubmit')
+    console.log(this.state);
+    if(this.state.password === this.state.confirmPassword) {
+      axios
+      .get('https://dev.virtualearth.net/REST/v1/Locations/',{
+        params: {
+          CountryRegion: 'US',
+          adminDistrict: this.state.state,
+          locality: this.state.city,
+          postalCode: this.state.zip,
+          addressLine: this.state.address,
+          key: process.env.REACT_APP_BING_LOCATION_KEY,
+        }
+      })
+      .then((res) => {
+        console.log(res)
+        let locationApiResult = res.data;
+            if(locationApiResult.statusCode === 200) {
+                let locations = locationApiResult.resourceSets[0].resources;
+                /* Possible improvement: choose better location in case first one not desired
+                */
+                let location = locations[0];
+                let lat = location.geocodePoints[0].coordinates[0];
+                let long = location.geocodePoints[0].coordinates[1];
+                if(location.geocodePoints.length === 2) {
+                    lat = location.geocodePoints[1].coordinates[0];
+                    long = location.geocodePoints[1].coordinates[1];
+                }
+                let object = {
+                  email: this.state.email,
+                  password: this.state.password,
+                  first_name: this.state.firstName,
+                  last_name: this.state.lastName,
+                  phone_number: this.state.phone,
+                  address: this.state.address,
+                  unit: this.state.unit,
+                  city: this.state.city,
+                  state: this.state.state,
+                  zip_code: this.state.zip,
+                  latitude: lat.toString(),
+                  longitude: long.toString(),
+                  referral_source: 'WEB',
+                  role: 'CUSTOMER',
+                  social: 'FALSE',
+                  access_token: 'NULL',
+                  refresh_token: 'NULL',
+                }
+                console.log(JSON.stringify(object));
+                axios
+                .post('https://tsx3rnuidi.execute-api.us-west-1.amazonaws.com/dev/api/v2/SignUp',object,{
+                  headers: {
+                    'Content-Type': 'text/plain'
+                  }
+                })
+                .then((res) => {
+                  let customerInfo = res.data.result;
+                  console.log('cookie',document.cookie)
+                  document.cookie = 'customer_uid=' + customerInfo.customer_uid;
+                  console.log('cookie',document.cookie)
+                  this.props.history.push("/farms");
+                })
+                .catch((err) => {
+                  console.log(err);
+                  if(err.response) {
+                    console.log(err.response);
+                  }
+                })
+            }
+      })
+      .catch((err) => {
+        console.log(err);
+        if(err.response) {
+          console.log(err.response);
+        }
+      })
     } else {
-      console.log("has error, unable to submit")
+      console.log('Passwords not matching')
     }
   }
 
-  _onReset() {
-    console.log("_onReset")
+  _onReset = () => {
     this.setState({
-      account: '',
       email: '',
-      emailErrorText: '',
       password: '',
       confirmPassword: '',
-      confirmPasswordErrorText: '',
-      telNum: '',
+      phone: '',
+      address: '',
+      unit: '',
+      state: '',
+      zip: '',
+    })
+  }
+  
+  _emailChange = (event) => {
+    this.setState({
+      email: event.target.value,
     })
   }
 
-  _handleAccountChange(e, val) {
-    this.setState({ account: val })
+  _passwordChange = (event) => {
+    this.setState({
+      password: event.target.value,
+    })
   }
 
-  _handlePasswordChange(e, val) {
-    this.setState({ password: val })
+  _confirmPasswordChange = (event) => {
+    this.setState({
+      confirmPassword: event.target.value,
+    })
   }
 
-  _handleConfirmPasswordChange(e, val) {
-    var errorText = ''
-    if (val != this.state.password) {
-      errorText = 'Passwords are not matched'
-    }
-    this.setState({ confirmPassword: val, confirmPasswordErrorText: errorText })
+  _firstNameChange = (event) => {
+    this.setState({
+      firstName: event.target.value,
+    })
   }
 
-  _handleEmailChange(e, val) {
-    var errorText = ''
-    if (!this.validateEmail(val)) {
-      errorText = "Email Format Error"
-    }
-    this.setState({ emailErrorText: errorText, email: val })
+  _lastNameChange = (event) => {
+    this.setState({
+      lastName: event.target.value,
+    })
   }
 
-  _handleInputChange(telNumber, selectedCountry) {
-    console.log('input changed. number: ', telNumber, 'selected country: ', selectedCountry);
+  _phoneChange = (event) => {
+    this.setState({
+      phone: event.target.value
+    })
   }
 
-  _handleInputBlur(telNumber, selectedCountry) {
-    console.log('Focus off the ReactTelephoneInput component. Tel number entered is: ', telNumber, ' selected country is: ', selectedCountry);
-    this.setState({ telNum: telNumber })
+  _addressChange = (event) => {
+    this.setState({
+      address: event.target.value
+    })
+  }
+  
+  _unitChange = (event) => {
+    this.setState({
+      unit: event.target.value
+    })
+  }
+
+  _cityChange = (event) => {
+    this.setState({
+      city: event.target.value,
+    })
+  }
+
+  _stateChange = (event) => {
+    this.setState({
+      state: event.target.value
+    })
+  }
+
+  _zipChange = (event) => {
+    this.setState({
+      zip: event.target.value
+    })
   }
 
   render() {
@@ -102,72 +194,97 @@ export default class signup extends Component {
         justifyContent="center"
         style={{ backgroundImage: `url(${Background})` }}
       >
-        <Paper style={this.getStyle()}>
+        <Paper style={{
+          height: 700,
+          width: 350,
+          margin: 20,
+          textAlign: 'center',
+          display: 'inline-block',
+        }}>
           <p>SIGN UP</p>
-          <form onSubmit={this._onSubmit.bind(this)}>
+          <form onSubmit={this._onSubmit}>
 
 
             <TextField
-              value={this.state.account}
-              onChange={this._handleAccountChange.bind(this)}
-              hintText="Account"
-              floatingLabelText="Account"
-              floatingLabelFixed={true}
-              label="First Name"
+              value={this.state.email}
+              onChange={this._emailChange}
+              label="Email"
             />
             <br />
 
 
             <TextField
               value={this.state.password}
-              onChange={this._handlePasswordChange.bind(this)}
-              hintText="Password"
-              floatingLabelText="Password"
-              floatingLabelFixed={true}
+              onChange={this._passwordChange}
               type="password"
-              label="First Name"
+              label="Password"
             />
             <br />
 
             <TextField
               value={this.state.confirmPassword}
-              errorText={this.state.confirmPasswordErrorText}
-              onChange={this._handleConfirmPasswordChange.bind(this)}
-              hintText="Confirmed Password"
-              floatingLabelText="Confirmed Password"
-              floatingLabelFixed={true}
+              onChange={this._confirmPasswordChange}
               type="password"
-              label="First Name"
+              label="Confirm Password"
             />
             <br />
 
             <TextField
-              value={this.state.email}
-              errorText={this.state.emailErrorText}
-              onChange={this._handleEmailChange.bind(this)}
-              hintText="Email"
-              floatingLabelText="Email"
-              floatingLabelFixed={true}
+              value={this.state.firstName}
+              onChange={this._firstNameChange}
               label="First Name"
             />
             <br />
-
-
-            <div>
-              <ReactTelephoneInput
-                flagsImagePath='static/images/flags.png'
-                defaultCountry='id'
-                onChange={this._handleInputChange.bind(this)}
-                onBlur={this._handleInputBlur.bind(this)}
-                preferredCountries={['sg', 'id', 'cn', 'tw']}
-              />
-            </div>
+            <TextField
+              value={this.state.lastName}
+              onChange={this._lastNameChange}
+              label="Last Name"
+            />
             <br />
+
+            <TextField
+              value={this.state.phone}
+              onChange={this._phoneChange}
+              label="Phone"
+            />
+            <br />
+
+            <TextField
+              value={this.state.address}
+              onChange={this._addressChange}
+              label="Address"
+            />
+            <br />
+
+            <TextField
+              value={this.state.unit}
+              onChange={this._unitChange}
+              label="Unit"
+            />
+            <br />
+            <TextField
+              value={this.state.city}
+              onChange={this._cityChange}
+              label="City"
+            />
+            <br />
+            <TextField
+              value={this.state.state}
+              onChange={this._stateChange}
+              label="State"
+            />
+            <br />
+
+            <TextField
+              value={this.state.zip}
+              onChange={this._zipChange}
+              label="Zip code"
+            />
             <br />
             <br />
             <div>
               <Button variant="contained" type="submit">Submit</Button>
-              <Button variant="contained" style={{ marginLeft: '20px' }} type="button" onClick={this._onReset.bind(this)}>Reset</Button>
+              <Button variant="contained" style={{ marginLeft: '20px' }} type="button" onClick={this._onReset}>Reset</Button>
             </div>
           </form>
         </Paper>
@@ -175,3 +292,5 @@ export default class signup extends Component {
     )
   }
 }
+
+export default withRouter(Signup);
