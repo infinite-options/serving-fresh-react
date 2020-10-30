@@ -761,21 +761,66 @@ dd dl .term {
 /*css for days page*/
 .dateCardcss {
   width: 450px;
+  display: inline-block;
+  margin-left: 55px;
+  background-color: white;
+  width: 250px;
+  height: 250px;
+  color: #136d74;
+  border-radius: 15px;
 }
 
 .weekDayDiv {
-  font-size: 50px;
-  background-color: #136d74;
-  color: white;
-  height: 70px;
+  background-color: #ff5f40;
   border-radius: 15px;
-  padding-top: 35px;
+  color: white;
 }
 
 .dateDiv {
-  font-size: 50px;
-  color: #FF8500;
-  background-color: #eaeaea;
-  height: 170px;
-  padding-top: 90px;
+  position: relative;
+  top: 40px;
+}
+
+.daysCard {
+  position: relative;
+  bottom: 100px;
+  font-size: 43px;
+}
+
+.headerheightDaysPage {
+  height: 410px;
+}
+
+
+
+/*css for farmCard days page*/
+.bodyDays {
+  margin-top: 550px;
+  font-size: 38px;
+}
+
+.indentFilteringLine{
+  margin-left: 55px;
+}
+
+.limitSize {
+  height: 280px;
+  width: 280px;
+
+}
+
+.imgAndName {
+  display: inline-block;
+  margin-left: 55px;
+  /* width: 310px; */
+}
+
+.greenWord {
+  color: #136d74;
+  background: none;
+}
+
+.farmNameFont{
+  font-size: 30px;
+  text-align: center;
 }

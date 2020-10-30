@@ -1,19 +1,19 @@
 
 const dayInWeek= [
     {
-        weekDay: "Monday",
+        weekDay: "Mon",
         date: "Oct 12"
     },
     {
-        weekDay: "Wednesday",
+        weekDay: "Wed",
         date: "Oct 14"
     },
     {
-        weekDay: "Friday",
+        weekDay: "Fri",
         date: "Oct 16"
     },
     {
-        weekDay: "Saturday",
+        weekDay: "Sat",
         date: "Oct 17"
     }
 ];

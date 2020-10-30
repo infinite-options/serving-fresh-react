@@ -289,32 +289,32 @@ function Cart() {
   // console.log( (-couponValue * subprice) + " " + (tax * subprice) + " " + shippingCost + " " + subprice);
   // var userEmail= "johnhay@gmail.com";
 
-  function clickCoupon10(){
-    console.log("Coupon 10 is clicked");
-    if(hasCoupon10 && coupon10!=="./coupon_img/coupon10grey.png"){
-      setCoupon10(!cp10);
-      if(cp15){setCoupon15(!cp15);}
-      if(cp20){setCoupon20(!cp20);}
-    } 
-  }
+  // function clickCoupon10(){
+  //   console.log("Coupon 10 is clicked");
+  //   if(hasCoupon10 && coupon10!=="./coupon_img/coupon10grey.png"){
+  //     setCoupon10(!cp10);
+  //     if(cp15){setCoupon15(!cp15);}
+  //     if(cp20){setCoupon20(!cp20);}
+  //   } 
+  // }
 
-  function clickCoupon15(){
-    console.log("Coupon 15 is clicked");
-    if(hasCoupon15 && coupon15!=="./coupon_img/coupon15grey.png"){
-      setCoupon15(!cp15);
-      if(cp10){setCoupon10(!cp10);}
-      if(cp20){setCoupon20(!cp20);}
-    }
-  }
+  // function clickCoupon15(){
+  //   console.log("Coupon 15 is clicked");
+  //   if(hasCoupon15 && coupon15!=="./coupon_img/coupon15grey.png"){
+  //     setCoupon15(!cp15);
+  //     if(cp10){setCoupon10(!cp10);}
+  //     if(cp20){setCoupon20(!cp20);}
+  //   }
+  // }
 
-  function clickCoupon20(){
-    console.log("Coupon 20 is clicked");
-    if(hasCoupon20 && coupon20!=="./coupon_img/coupon20grey.png"){
-      setCoupon20(!cp20);
-      if(cp10){setCoupon10(!cp10);}
-      if(cp15){setCoupon15(!cp15);}
-    }
-  }
+  // function clickCoupon20(){
+  //   console.log("Coupon 20 is clicked");
+  //   if(hasCoupon20 && coupon20!=="./coupon_img/coupon20grey.png"){
+  //     setCoupon20(!cp20);
+  //     if(cp10){setCoupon10(!cp10);}
+  //     if(cp15){setCoupon15(!cp15);}
+  //   }
+  // }
 
   // console.log("coupon10 status: ",cp10);
   // console.log("coupon15 status: ",cp15);

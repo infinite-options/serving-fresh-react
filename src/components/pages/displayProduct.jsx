@@ -55,7 +55,7 @@ function DisplayProduct() {
   
   //because at the start of the fetching, it has nothing and that will cause error 
   //with this if condition, we only work if we get the data 
-  if(!prodChoice.itemIsLoading && !prodChoice.itemError){
+  if(prodChoice.itemIsLoading && !prodChoice.itemError){
     var holdItem = prodChoice.itemsFromFetchTodDisplay;
     var copyFarm = holdItem;
     const farmName= "Resendiz";

@@ -1,33 +1,66 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import someContexts from "./makeContext";
 import { Link } from "react-router-dom";
+// import daysInWeek from "../daysInWeek";
+import DateCard from "./pages/DateCard";
+
+function createDateCard(props){
+  return(
+      <DateCard 
+          weekDay = {props.weekDay}
+          month = {props.month}
+          day = {props.day}
+          weekDayFull = {props.weekDayFull}
+          id = {props.weekDay}
+          key = {props.weekDay}
+      />
+  );
+}
+
+function createDefault7Day(){
+  var days = ["SUN", "MON", "TUES", "WED", "THUR", "FRI", "SAT"];
+  var months= ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  var fullDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  
+  var default7Days = [];
+  for(var i =0; i< 7;i++){
+    var today = new Date();
+    today.setDate(today.getDate()+1+i);
+    var newDay ={
+      weekDay : days[today.getDay()],
+      month : months[today.getMonth()],
+      day : today.getDate(),
+      weekDayFull: fullDays[today.getDay()]
+    }
+    default7Days.push(newDay);
+  }
+  return default7Days;
+}
+
+function makeFilterDay(defaultDay,updateDay){
+  var arr= [];
+  for(var i =0; i<updateDay.length;i++){
+    for(var j =0;j<defaultDay.length;j++){
+      if(updateDay[i]===defaultDay[j].weekDayFull){
+        var holdNewDate = defaultDay[j];
+        arr.push(holdNewDate);
+      }
+    }
+  }
+
+  return arr.reverse();
+}
 
 function HeaderDays(props) {
   const cartContext = useContext(someContexts);
   var itemsAmount = cartContext.cartTotal;
-  // var fruitClass = "link sort1";
-  const [fruitClick, set1]= useState(true);
-  const [vegeClick, set2]= useState(true);
-  const [dessertClick, set3]= useState(true);
-  const [othersClick, set4]= useState(true);
-
-  function fruitClicking(){
-    set1(!fruitClick);
-    cartContext.setValFruit(!fruitClick);
+  //variable: a set of day need to display 
+  var allValidDay = createDefault7Day();
+  // console.log(allValidDay);
+  if(cartContext.newWeekDay.length !== 0){
+    allValidDay = makeFilterDay(allValidDay,cartContext.newWeekDay);
+    // console.log(testUpdateDay);
   }
-  function vegeClicking(){
-    set2(!vegeClick);
-    cartContext.setValVege(!vegeClick);
-  }
-  function dessertClicking(){
-    set3(!dessertClick);
-    cartContext.setValDessert(!dessertClick);
-  }
-  function othersClicking(){
-    set4(!othersClick);
-    cartContext.setValOther(!othersClick);
-  }
-
 
   return(<div>
     <h2 className="h2Header">{props.title}</h2>
@@ -39,28 +72,12 @@ function HeaderDays(props) {
       </div>
     </Link>
     <hr className="blackHrHeaderSHop"></hr>
-    <div>
-      <div className={fruitClick ? "link4Button sort1" : "link4Button sort1 colorClick"} onClick={fruitClicking}>
-        <img className= "iconBlock positioningSsort" src={fruitClick? "./footer_icon/Asset 7.png": "./footer_icon/orangeFruit.png" }alt="fruit-img"></img>
-        <span>fruits</span>
-      </div>
 
-      <div className={vegeClick ? "link4Button sort2" : "link4Button sort2 colorClick"} onClick={vegeClicking}>
-        <img className= "iconBlock positioningSsort" src= {vegeClick? "./footer_icon/Asset 4.png": "./footer_icon/orangeVegetable.png" } alt="vegetable-img"></img>
-        <span>Vegetables</span>
-      </div>
-
-      <div className={dessertClick ? "link4Button sort3" : "link4Button sort3 colorClick"} onClick={dessertClicking}>
-        <img className= "iconBlock positioningSsort" src= {dessertClick? "./footer_icon/Asset 6.png": "./footer_icon/orangeDessert.png" }  alt="desert-img"></img>
-        <span>Desserts</span>
-      </div>
-
-      <div className={othersClick ? "link4Button sort4" : "link4Button sort4 colorClick"} onClick={othersClicking}>
-        <img className= "iconBlock positioningSsort" src= {othersClick? "./footer_icon/Asset 5.png": "./footer_icon/orangeOthers.png" } alt="bread-img"></img>
-        <span>Others</span>
-      </div>
+    <div className="scrolling-wrapper daysCard">
+      <div>{allValidDay.map(createDateCard)}</div>
     </div>
    </div> );
 }
 
 export default HeaderDays;
+
